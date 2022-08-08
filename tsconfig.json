@@ -1,26 +1,33 @@
 {
   "compilerOptions": {
     "target": "es5",
-    "lib": [
-      "dom",
-      "dom.iterable",
-      "esnext"
-    ],
+    "lib": ["dom", "dom.iterable", "esnext"],
     "allowJs": true,
     "skipLibCheck": true,
-    "esModuleInterop": true,
-    "allowSyntheticDefaultImports": true,
     "strict": true,
     "forceConsistentCasingInFileNames": true,
-    "noFallthroughCasesInSwitch": true,
+    "noEmit": true,
+    "esModuleInterop": true,
     "module": "esnext",
     "moduleResolution": "node",
     "resolveJsonModule": true,
     "isolatedModules": true,
-    "noEmit": true,
-    "jsx": "react-jsx"
+    "jsx": "preserve",
+    "incremental": true,
+    "baseUrl": "src",
+    "paths": {
+      "types/*": ["types/*"],
+      "services/*": ["services/*"],
+      "assets/*": ["assets/*"],
+      "utils/*": ["utils/*"],
+      "hooks/*": ["hooks/*"],
+      "store/*": ["store/*"],
+      "pages/*": ["pages/*"],
+      "modules/*": ["modules/*"],
+      "constants/*": ["constants/*"],
+      "components/*": ["components/*"]
+    }
   },
-  "include": [
-    "src"
-  ]
+  "include": ["react-app-env.d.ts", "**/*.ts", "**/*.tsx", "plopfile.js"],
+  "exclude": ["node_modules"]
 }
