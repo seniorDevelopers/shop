@@ -10,7 +10,8 @@ import { useSelector } from "react-redux";
 // };
 
 const Login = ({ setTab, setOpen }: any) => {
-  const language = useSelector((state: any) => state.change.changeLanguage);
+  const { changeLanguage } = useSelector((state: any) => state.changeLanguge);
+
   const changeTab = () => {
     setTab("registration");
   };
@@ -33,7 +34,7 @@ const Login = ({ setTab, setOpen }: any) => {
       password: password,
       email: email,
     };
-    console.log(data)
+    console.log(data);
   };
   return (
     <>
@@ -45,14 +46,14 @@ const Login = ({ setTab, setOpen }: any) => {
         className="form"
       >
         <h1 className="title">
-          {!language ? "Xush kelibsiz" : "Добро пожаловать"}
+          {!changeLanguage ? "Xush kelibsiz" : "Добро пожаловать"}
         </h1>
         <i className="icon" onClick={closeModal}>
           <CloseOutlined />
         </i>
 
         <Form.Item
-          label={!language ? "Ismingiz" : "Имя"}
+          label={!changeLanguage ? "Ismingiz" : "Имя"}
           name="name"
           rules={[{ required: true, message: "Please enter your name!" }]}
         >
@@ -65,7 +66,7 @@ const Login = ({ setTab, setOpen }: any) => {
         </Form.Item>
 
         <Form.Item
-          label={!language ? "Raqamingiz" : "Номер тел"}
+          label={!changeLanguage ? "Raqamingiz" : "Номер тел"}
           name="number"
           rules={[{ required: true, message: "Please enter your number!" }]}
         >
@@ -78,15 +79,15 @@ const Login = ({ setTab, setOpen }: any) => {
 
         <Form.Item wrapperCol={{ offset: 10, span: 10 }}>
           <Button type="primary" ghost={true} onClick={onSubmit}>
-            {!language ? "Kirish" : "Войти"}
+            {!changeLanguage ? "Kirish" : "Войти"}
           </Button>
         </Form.Item>
       </Form>
       <p style={{ textAlign: "center" }}>
-        {!language ? "Ro'yxatdan o'tmaganmisiz?" : "У вас нет аккаунта?"}{" "}
+        {!changeLanguage ? "Ro'yxatdan o'tmaganmisiz?" : "У вас нет аккаунта?"}{" "}
         <b style={{ cursor: "pointer" }} onClick={changeTab}>
           {" "}
-          {!language ? "Ro'yxatdan o'tish" : "Регистрация"}
+          {!changeLanguage ? "Ro'yxatdan o'tish" : "Регистрация"}
         </b>
       </p>
     </>

@@ -5,10 +5,10 @@ import "./index.scss";
 import { useDispatch, useSelector } from "react-redux";
 
 const Registration = ({ setTab, setOpen }: any) => {
-  const language = useSelector((state: any) => state.change.changeLanguage);
+  const { changeLanguage } = useSelector((state: any) => state.changeLanguge);
+
   const [username, setUsername] = useState<string>("");
   const [number, setNumber] = useState<string>("");
-  const dispatch = useDispatch()
   const changeTab = () => {
     setTab("login");
   };
@@ -30,14 +30,14 @@ const Registration = ({ setTab, setOpen }: any) => {
         className="form"
       >
         <h1 className="title">
-          {!language ? "Ro'yxatdan o'tish" : "Регистрация"}
+          {!changeLanguage ? "Ro'yxatdan o'tish" : "Регистрация"}
         </h1>
         <i className="icon" onClick={() => setOpen(false)}>
           <CloseOutlined />
         </i>
 
         <Form.Item
-          label={!language ? "Ismingiz" : "Имя"}
+          label={!changeLanguage ? "Ismingiz" : "Имя"}
           name="name"
           rules={[{ required: true, message: "Please enter your name!" }]}
         >
@@ -45,7 +45,7 @@ const Registration = ({ setTab, setOpen }: any) => {
         </Form.Item>
 
         <Form.Item
-          label={!language ? "Raqamingiz" : "Номер тел"}
+          label={!changeLanguage ? "Raqamingiz" : "Номер тел"}
           name="number"
           rules={[{ required: true, message: "Please enter your number!" }]}
         >
@@ -54,14 +54,14 @@ const Registration = ({ setTab, setOpen }: any) => {
 
         <Form.Item wrapperCol={{ offset: 9, span: 10 }}>
           <Button type="primary" ghost={true} onClick={onSubmit}>
-            {!language ? "Ro'yxatdan o'tish" : "Регистрация"}
+            {!changeLanguage ? "Ro'yxatdan o'tish" : "Регистрация"}
           </Button>
         </Form.Item>
       </Form>
       <p style={{ textAlign: "center" }}>
-        {!language ? "Ro'yxatdan o'tganmisiz?" : "У вас есть аккаунт?"}{" "}
+        {!changeLanguage ? "Ro'yxatdan o'tganmisiz?" : "У вас есть аккаунт?"}{" "}
         <b style={{ cursor: "pointer" }} onClick={changeTab}>
-          {!language ? "Kirish" : "Войти"}
+          {!changeLanguage ? "Kirish" : "Войти"}
         </b>
       </p>
     </>
