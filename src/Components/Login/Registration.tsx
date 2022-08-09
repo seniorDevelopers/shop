@@ -2,23 +2,22 @@ import { Button, Form, Input } from "antd";
 import { CloseOutlined } from "@ant-design/icons";
 import { useState } from "react";
 import "./index.scss";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 
 const Registration = ({ setTab, setOpen }: any) => {
   const language = useSelector((state: any) => state.change.changeLanguage);
-  const [password, setPassword] = useState<string>("");
-  const [email, setEmail] = useState<string>("");
-
+  const [username, setUsername] = useState<string>("");
+  const [number, setNumber] = useState<string>("");
+  const dispatch = useDispatch()
   const changeTab = () => {
     setTab("login");
   };
 
   const onSubmit = () => {
     const data = {
-      password: password,
-      email: email,
+      username: username,
+      number: number,
     };
-    console.log(data)
   };
 
   return (
@@ -42,7 +41,7 @@ const Registration = ({ setTab, setOpen }: any) => {
           name="name"
           rules={[{ required: true, message: "Please enter your name!" }]}
         >
-          <Input onChange={(e) => setEmail(e.target.value)} />
+          <Input onChange={(e) => setUsername(e.target.value)} />
         </Form.Item>
 
         <Form.Item
@@ -50,17 +49,20 @@ const Registration = ({ setTab, setOpen }: any) => {
           name="number"
           rules={[{ required: true, message: "Please enter your number!" }]}
         >
-          <Input type="text" onChange={(e) => setPassword(e.target.value)} />
+          <Input type="text" onChange={(e) => setNumber(e.target.value)} />
         </Form.Item>
 
         <Form.Item wrapperCol={{ offset: 9, span: 10 }}>
           <Button type="primary" ghost={true} onClick={onSubmit}>
-          {!language ? "Ro'yxatdan o'tish" : "Регистрация"}
+            {!language ? "Ro'yxatdan o'tish" : "Регистрация"}
           </Button>
         </Form.Item>
       </Form>
       <p style={{ textAlign: "center" }}>
-        {!language ? "Ro'yxatdan o'tganmisiz?" : "У вас есть аккаунт?"} <b style={{ cursor: "pointer" }} onClick={changeTab}>{!language ? "Kirish" : "Войти"}</b>
+        {!language ? "Ro'yxatdan o'tganmisiz?" : "У вас есть аккаунт?"}{" "}
+        <b style={{ cursor: "pointer" }} onClick={changeTab}>
+          {!language ? "Kirish" : "Войти"}
+        </b>
       </p>
     </>
   );

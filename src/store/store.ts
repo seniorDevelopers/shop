@@ -1,8 +1,12 @@
-import { configureStore } from "@reduxjs/toolkit";
-import  changeSlice  from "./endpoints/changeLanguage";
+import { createStore, applyMiddleware } from "redux";
+import { composeWithDevTools } from "redux-devtools-extension";
+import thunk from "redux-thunk";
+import rootReducer from "./rootReducer";
 
-export const store = configureStore({
-  reducer: {
-    change: changeSlice,
-  },
-});
+const getMiddleware = () => applyMiddleware(thunk);
+
+export const store = createStore(
+  rootReducer,
+  composeWithDevTools(getMiddleware())
+);
+export type AppDispatch = typeof store.dispatch
