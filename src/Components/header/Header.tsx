@@ -36,6 +36,8 @@ const Header = () => {
     dispatch(actionChangeLanguge(!changeLanguage));
   };
 
+  const user: any = localStorage.getItem("user");
+  const userObj = JSON.parse(user);
   return (
     <nav className="headerContainer">
       <div className="headerWrapper globalContainer">
@@ -79,9 +81,15 @@ const Header = () => {
           <div className="icon">
             <ShoppingCartOutlined />
           </div>
-          <div className="icon">
-            <LoginOutlined onClick={() => setOpen(true)} />
-          </div>
+          {user === null ? (
+            <div className="icon">
+              <LoginOutlined onClick={() => setOpen(true)} />
+            </div>
+          ) : (
+            <div className="userData">
+              <img src="https://cdn-icons-png.flaticon.com/512/64/64572.png?w=360" alt="" />
+            </div>
+          )}
           <div className="language">
             {!changeLanguage ? (
               <div className="uzLan" onClick={change}>

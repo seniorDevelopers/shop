@@ -1,14 +1,52 @@
-import { Button, Form, Input } from "antd";
+import { Button, Form, Input, message } from "antd";
 import { CloseOutlined } from "@ant-design/icons";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import "./index.scss";
 import { useDispatch, useSelector } from "react-redux";
+import API from "services/rootApi";
+import { AppDispatch } from "store/store";
+import { actionGetUser } from "store/users/action";
 
 const Registration = ({ setTab, setOpen }: any) => {
   const { changeLanguage } = useSelector((state: any) => state.changeLanguge);
-
+  const { allUsers } = useSelector((state: any) => state.getUsers);
+  console.log(allUsers, "Hamma userlar");
   const [username, setUsername] = useState<string>("");
-  const [number, setNumber] = useState<string>("");
+  const [email, setEmail] = useState<string>("");
+
+  const key = "updatable";
+
+  const openMessage = () => {
+    message.loading({
+      content: !changeLanguage ? "Yuklanmoqda..." : "Загрузка...",
+      key,
+    });
+    setTimeout(() => {
+      message.success({
+        content: !changeLanguage
+          ? "Siz muvofiqiyatli ro'yxatdan o'tdingiz"
+          : "Вы успешно зарегистрировались",
+        key,
+        duration: 2,
+      });
+    }, 1000);
+  };
+  const openError = () => {
+    message.loading({
+      content: !changeLanguage ? "Yuklanmoqda..." : "Загрузка...",
+      key,
+    });
+    setTimeout(() => {
+      message.warning({
+        content: !changeLanguage
+          ? "Bunday foydalanuvchi mavjud"
+          : "Такой пользователь существует",
+        key,
+        duration: 2,
+      });
+    }, 1000);
+  };
+
   const changeTab = () => {
     setTab("login");
   };
@@ -16,10 +54,26 @@ const Registration = ({ setTab, setOpen }: any) => {
   const onSubmit = () => {
     const data = {
       username: username,
-      number: number,
+      email: email,
     };
+    const filter = allUsers.filter(
+      (item: any) => item.email.toLowerCase() === email.toLocaleLowerCase()
+    );
+    if (filter.length === 0) {
+      API.post("/user", data).then((res) => {
+        if (res.status === 201) {
+          openMessage();
+          setTab("login");
+        }
+      });
+    } else {
+      openError();
+    }
   };
-
+  const dispatch: AppDispatch = useDispatch();
+  useEffect(() => {
+    dispatch(actionGetUser());
+  }, []);
   return (
     <>
       <Form
@@ -45,11 +99,11 @@ const Registration = ({ setTab, setOpen }: any) => {
         </Form.Item>
 
         <Form.Item
-          label={!changeLanguage ? "Raqamingiz" : "Номер тел"}
-          name="number"
-          rules={[{ required: true, message: "Please enter your number!" }]}
+          label={!changeLanguage ? "Po'chtangiz" : "Ваша почта"}
+          name="email"
+          rules={[{ required: true, message: "Please enter your email!" }]}
         >
-          <Input type="text" onChange={(e) => setNumber(e.target.value)} />
+          <Input type="email" onChange={(e) => setEmail(e.target.value)} />
         </Form.Item>
 
         <Form.Item wrapperCol={{ offset: 9, span: 10 }}>

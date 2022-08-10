@@ -1,16 +1,51 @@
-import { Button, Form, Input } from "antd";
+import { Button, Form, Input, message } from "antd";
 import { CloseOutlined } from "@ant-design/icons";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 // import { useNavigate } from "react-router-dom";
 import "./index.scss";
-import { useSelector } from "react-redux";
-// type Inputs = {
-//   password: string;
-//   email: string;
-// };
+import { useDispatch, useSelector } from "react-redux";
+import { actionGetUser } from "store/users/action";
+import { AppDispatch } from "store/store";
 
 const Login = ({ setTab, setOpen }: any) => {
   const { changeLanguage } = useSelector((state: any) => state.changeLanguge);
+  const { allUsers } = useSelector((state: any) => state.getUsers);
+
+  const key = "updatable";
+
+  const openMessage = () => {
+    message.loading({
+      content: !changeLanguage ? "Yuklanmoqda..." : "Загрузка...",
+      key,
+    });
+    setTimeout(() => {
+      message.success({
+        content: !changeLanguage
+          ? "Tizimga kirilmoqda..."
+          : "Вход в систему...",
+        key,
+        duration: 2,
+      });
+    }, 1000);
+    setTimeout(() => {
+      window.location.reload();
+    }, 2000);
+  };
+  const openError = () => {
+    message.loading({
+      content: !changeLanguage ? "Yuklanmoqda..." : "Загрузка...",
+      key,
+    });
+    setTimeout(() => {
+      message.warning({
+        content: !changeLanguage
+          ? "Bunday foydalanuvchi mavjud emas"
+          : "Такого пользователя не существует",
+        key,
+        duration: 2,
+      });
+    }, 1000);
+  };
 
   const changeTab = () => {
     setTab("registration");
@@ -21,21 +56,31 @@ const Login = ({ setTab, setOpen }: any) => {
   };
 
   // const navigate = useNavigate();
-  const [password, setPassword] = useState<string>("");
+  const [username, setUsername] = useState<string>("");
   const [email, setEmail] = useState<string>("");
-
-  // const data: Inputs = {
-  //   password: password,
-  //   email: email,
-  // };
 
   const onSubmit = () => {
     const data = {
-      password: password,
+      username: username,
       email: email,
     };
-    console.log(data);
+    const userData = allUsers.filter(
+      (item: any) =>
+        item.email.toLowerCase() === email.toLocaleLowerCase() &&
+        item.username.toLowerCase() === username.toLocaleLowerCase()
+    );
+
+    if (userData.length > 0) {
+      localStorage.setItem("user", JSON.stringify(userData[0]));
+      openMessage();
+    } else {
+      openError();
+    }
   };
+  const dispatch: AppDispatch = useDispatch();
+  useEffect(() => {
+    dispatch(actionGetUser());
+  }, []);
   return (
     <>
       <Form
@@ -60,19 +105,19 @@ const Login = ({ setTab, setOpen }: any) => {
           <Input
             type="text"
             showCount={false}
-            onChange={(e) => setEmail(e.target.value)}
+            onChange={(e) => setUsername(e.target.value)}
             required
           />
         </Form.Item>
 
         <Form.Item
-          label={!changeLanguage ? "Raqamingiz" : "Номер тел"}
-          name="number"
-          rules={[{ required: true, message: "Please enter your number!" }]}
+          label={!changeLanguage ? "Po'chtangiz" : "Ваша почта"}
+          name="email"
+          rules={[{ required: true, message: "Please enter your email!" }]}
         >
           <Input
             type="text"
-            onChange={(e) => setPassword(e.target.value)}
+            onChange={(e) => setEmail(e.target.value)}
             required
           />
         </Form.Item>
