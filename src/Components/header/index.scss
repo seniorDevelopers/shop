@@ -25,6 +25,37 @@
       .icon {
         color: #fff;
         cursor: pointer;
+        .searchInput {
+          display: flex;
+          align-items: center;
+          gap: 10px;
+          input {
+            transition: 1s;
+            width: 1000px;
+            font-size: 18px;
+            background-color: transparent;
+            border: none;
+            border-bottom: 1px solid #fff;
+            outline: none;
+          }
+        }
+      }
+      .userData {
+        color: #000;
+        width: 25px;
+        height: 25px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin-top: 5px;
+        cursor: pointer;
+        overflow: hidden;
+        border-radius: 50%;
+        background-color: #fff;
+        border: 1px solid transparent;
+        img {
+          width: 100%;
+        }
       }
       .language {
         display: flex;
