@@ -1,7 +1,7 @@
 .productContainer {
   display: flex;
   aside {
-    width: 300px;
+    width: 320px;
     padding-top: 45px;
     padding-right: 20px;
     h3 {
@@ -25,6 +25,12 @@
     }
     .slider {
       margin-top: 20px;
+    }
+    p{
+        text-transform: capitalize;
+        cursor: pointer;
+        font-size: 18px;
+        margin-top: 10px;
     }
   }
   .productBox {
@@ -53,10 +59,15 @@
         display: inline-block;
         border: 1px solid #000;
         border-radius: 10px;
-
+        text-align: center;
+        img{
+            height: 200px;
+            width: auto;
+        }
         p {
           font-size: 16px;
           padding-bottom: 10px;
+          text-align: start;
         }
         button {
           padding: 10px;
@@ -65,6 +76,7 @@
           color: #fff;
           font-size: 16px;
           border: none;
+          text-align: start;
         }
       }
     }
