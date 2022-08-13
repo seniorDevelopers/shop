@@ -3,6 +3,7 @@ import React from "react";
 import "./Home.scss";
 function Home() {
   return (
+  <>
     <section className="homeContainer">
       <div className="title globalContainer">
         <h3>Новый</h3>
@@ -21,6 +22,11 @@ function Home() {
         </div>
       </div>
     </section>
+
+    <section>
+      
+    </section>
+  </>
   );
 }
 
