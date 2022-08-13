@@ -1,12 +1,12 @@
 import React from 'react';
-import "./Cards.scss";
+import "./ProductCard.scss";
 
 interface Types {
     title: string,
     img: string,
 }
 
-const Cards = ({title, img}: Types) => {
+const ProductCard = ({title, img}: Types) => {
   return (
     <div className='c-wrapper'>
         <p className='c-wrapper__title'>{title}</p>
@@ -15,4 +15,4 @@ const Cards = ({title, img}: Types) => {
   )
 }
 
-export default Cards;
+export default ProductCard;

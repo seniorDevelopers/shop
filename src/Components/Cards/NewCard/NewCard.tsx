@@ -1,5 +1,5 @@
 import React from 'react';
-import "./Card.scss";
+import "./NewCard.scss";
 
 interface Types {
     img: string,
@@ -7,7 +7,7 @@ interface Types {
     price: string,
 }
 
-const Card = ({img, title, price}: Types) => {
+const NewCard = ({img, title, price}: Types) => {
   return (
     <div className='card-wrapper'>
         <img style={{maxWidth: "100%"}} src={img} alt={title} />
@@ -19,4 +19,4 @@ const Card = ({img, title, price}: Types) => {
   )
 }
 
-export default Card;
+export default NewCard;
