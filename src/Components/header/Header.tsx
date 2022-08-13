@@ -6,7 +6,7 @@ import {
   ShoppingCartOutlined,
 } from "@ant-design/icons";
 import { AnyAction } from "redux";
-import {navigation} from './helpers'
+import { navigation } from './helpers'
 import uzFlag from "../../assets/Images/uzbFlag.jpg";
 import ruFlag from "../../assets/Images/rusFlag.jpg";
 import "./index.scss";
@@ -17,6 +17,7 @@ import Login from "components/Login/Login";
 import Registration from "components/Login/Registration";
 import { actionChangeLanguge } from "store/changeLanguage/action";
 import { AppDispatch } from "store/store";
+import { Link } from "react-router-dom";
 interface Dispatch {
   action: any;
   payload: boolean;
@@ -43,7 +44,9 @@ const Header = () => {
       <div className="headerWrapper globalContainer">
         <div>
           <p className="logo">
-            Mac<b>Bro</b>
+            <Link to={"/"}>
+              <span style={{ color: "white" }}>Mac<b>Bro</b></span>
+            </Link>
           </p>
         </div>
         <ul hidden={searchHidden}>
@@ -59,10 +62,10 @@ const Header = () => {
           <div
             className="icon"
 
-            // onMouseLeave={() => setSearchHidden(!searchHidden)}
+          // onMouseLeave={() => setSearchHidden(!searchHidden)}
           >
             {!searchHidden ? (
-              <SearchOutlined onClick={() =>setSearchHidden(!searchHidden)} />
+              <SearchOutlined onClick={() => setSearchHidden(!searchHidden)} />
             ) : (
               <div className="searchInput">
                 <SearchOutlined />
@@ -76,10 +79,14 @@ const Header = () => {
             )}
           </div>
           <div className="icon">
-            <HeartOutlined />
+            <Link to={"/favorites"}>
+              <HeartOutlined style={{ color: "white" }} />
+            </Link>
           </div>
           <div className="icon">
-            <ShoppingCartOutlined />
+            <Link to={"/cart"}>
+              <ShoppingCartOutlined style={{color: "white"}} />
+            </Link>
           </div>
           {user === null ? (
             <div className="icon">
