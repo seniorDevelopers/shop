@@ -1,5 +1,5 @@
-import Cart from "pages/Cart/Cart";
-import Favorites from "pages/Favorites/Favorites";
+import Cart from "./pages/Cart/Cart";
+import Favorites from "./pages/Favorites/Favorites";
 import Home from "./pages/Home/Home";
 import Product from "./pages/Product/Product";
 
