@@ -26,11 +26,11 @@
     .slider {
       margin-top: 20px;
     }
-    p{
-        text-transform: capitalize;
-        cursor: pointer;
-        font-size: 18px;
-        margin-top: 10px;
+    p {
+      text-transform: capitalize;
+      cursor: pointer;
+      font-size: 18px;
+      margin-top: 10px;
     }
   }
   .productBox {
@@ -52,33 +52,8 @@
     .cardContainer {
       display: grid;
       grid-template-columns: 1fr 1fr 1fr 1fr;
-      gap: 20px;
       padding-top: 50px;
-      .card {
-        padding: 10px;
-        display: inline-block;
-        border: 1px solid #000;
-        border-radius: 10px;
-        text-align: center;
-        img{
-            height: 200px;
-            width: auto;
-        }
-        p {
-          font-size: 16px;
-          padding-bottom: 10px;
-          text-align: start;
-        }
-        button {
-          padding: 10px;
-          background-color: darkred;
-          border-radius: 10px;
-          color: #fff;
-          font-size: 16px;
-          border: none;
-          text-align: start;
-        }
-      }
+      gap: 20px;
     }
   }
 }

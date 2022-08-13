@@ -24,15 +24,15 @@
       line-height: 1;
       padding: 10px 0;
     }
-    button{
-        background-color: #0071e3;
-        padding: 5px 20px;
-        color: #fff;
-        font-size: 18px;
-        border: none;
-        border-radius: 20px;
-        margin-top: 30px;
-        cursor: pointer;
+    button {
+      background-color: #0071e3;
+      padding: 5px 20px;
+      color: #fff;
+      font-size: 18px;
+      border: none;
+      border-radius: 20px;
+      margin-top: 30px;
+      cursor: pointer;
     }
   }
   .remoteVideo {
@@ -41,5 +41,30 @@
     z-index: 1;
     width: 100vw;
     height: 90vh;
+  }
+}
+.newCard {
+  h6 {
+    margin-top: 100px;
+    text-align: center;
+    font-size: 50px;
+    color: #000;
+  }
+  .newCards {
+    display: grid;
+    grid-template-columns: auto auto auto auto;
+  }
+}
+.phone {
+  h6 {
+    margin-top: 100px;
+    text-align: center;
+    font-size: 50px;
+    color: #000;
+  }
+  .phonesCards {
+    display: grid;
+    grid-template-columns: auto auto auto auto;
+    gap: 20px;
   }
 }

@@ -1,0 +1,58 @@
+.buy-card-wrapper {
+  background-color: #fff;
+  padding: 30px 20px 0 20px;
+  border-radius: 8px;
+  text-align: center;
+  position: relative;
+  border: 1px solid #ddd;
+  height: 445px;
+  overflow: hidden;
+  img {
+    height: 150px;
+    width:auto;
+    cursor: pointer;
+  }
+
+  .buy-card-wrapper__titles {
+    text-align: left;
+    padding-top: 30px;
+
+    .buy-card-wrapper__titles__title {
+      font-size: 16px;
+      font-weight: 500;
+      line-height: 25px;
+      color: #1d1d1d;
+      transition: 0.3s;
+      padding-bottom: 10px;
+    }
+
+    .buy-card-wrapper__titles__text {
+      margin-top: 8px;
+      font-size: 22px;
+      line-height: 26px;
+      color: #333;
+      padding-bottom: 10px;
+    }
+  }
+
+  .buy-card-wrapper__icons {
+    position: absolute;
+    bottom: 10px;
+    left: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 1.5rem;
+    margin-top: 1rem;
+
+    &__btn {
+      background-color: #f5363e;
+      border: 1px solid #f5363e;
+      font-size: 18px;
+      color: #fff;
+      padding: 5px 12px;
+      border-radius: 8px;
+      cursor: pointer;
+    }
+  }
+}
