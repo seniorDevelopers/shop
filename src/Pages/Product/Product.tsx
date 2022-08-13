@@ -5,6 +5,7 @@ import { Select, Slider } from "antd";
 import { Option } from "antd/lib/mentions";
 import API from "services/rootApi";
 import { useSelector } from "react-redux";
+import BuyCard from "components/Cards/BuyCard/BuyCard";
 const Product = () => {
   const params = useParams();
   const { changeLanguage } = useSelector((state: any) => state.changeLanguge);
@@ -90,12 +91,12 @@ const Product = () => {
           {sortData.length === 0
             ? !value
               ? data.map((item: any) => (
-                  <div className="card" key={item.id}>
-                    <img src={item.image} alt="" width={200} />
-                    <p>{item.model_uz}</p>
-                    <p>{item.price_uz}</p>
-                    <button>KORZINU</button>
-                  </div>
+                  <BuyCard
+                    img={item.image}
+                    title={item.model_uz}
+                    price={item.price_uz}
+                    key={item.id}
+                  />
                 ))
               : data
                   .filter(
@@ -110,21 +111,21 @@ const Product = () => {
                       ) >= value
                   )
                   .map((item: any) => (
-                    <div className="card" key={item.id}>
-                      <img src={item.image} alt="" width={200} />
-                      <p>{item.model_uz}</p>
-                      <p>{item.price_uz}</p>
-                      <button>KORZINU</button>
-                    </div>
+                    <BuyCard
+                      img={item.image}
+                      title={item.model_uz}
+                      price={item.price_uz}
+                      key={item.id}
+                    />
                   ))
             : !value
             ? sortData.map((item: any) => (
-                <div className="card" key={item.id}>
-                  <img src={item.image} alt="" />
-                  <p>{item.model_uz}</p>
-                  <p>{item.price_uz}</p>
-                  <button>KORZINU</button>
-                </div>
+                <BuyCard
+                  img={item.image}
+                  title={item.model_uz}
+                  price={item.price_uz}
+                  key={item.id}
+                />
               ))
             : sortData
                 .filter(
@@ -139,14 +140,13 @@ const Product = () => {
                     ) >= value
                 )
                 .map((item: any) => (
-                  <div className="card" key={item.id}>
-                    <img src={item.image} alt="" />
-                    <p>{item.model_uz}</p>
-                    <p>{item.price_uz}</p>
-                    <button>KORZINU</button>
-                  </div>
+                  <BuyCard
+                    img={item.image}
+                    title={item.model_uz}
+                    price={item.price_uz}
+                    key={item.id}
+                  />
                 ))}
-       
         </div>
       </div>
     </section>

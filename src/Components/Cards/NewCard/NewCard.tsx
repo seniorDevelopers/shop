@@ -10,7 +10,7 @@ interface Types {
 const NewCard = ({img, title, price}: Types) => {
   return (
     <div className='card-wrapper'>
-        <img style={{maxWidth: "100%"}} src={img} alt={title} />
+        <img src={img} alt={title} />
         <div className='card-wrapper__titles'>
             <p className='card-wrapper__titles__title'>{title}</p>
             <span className='card-wrapper__titles__text'>{price}</span>

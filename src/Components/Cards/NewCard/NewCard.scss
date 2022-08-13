@@ -1,15 +1,16 @@
 .card-wrapper {
     outline: none;
-    width: 243px;
     margin: 0 16px;
     background-color: #fff;
-    padding: 38px 0;
+    padding: 38px 10px;
     border-radius: 8px;
     text-align: center;
     cursor: pointer;
 
     img {
         transition: all .4s ease;
+        height: 200px;
+        width: auto;
     }
 
     img:hover {
@@ -18,7 +19,6 @@
 
     .card-wrapper__titles {
         margin-top: 1.5rem;
-
         &__title {
             font-size: 17px;
             font-weight: 500;
