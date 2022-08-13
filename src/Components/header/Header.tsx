@@ -6,17 +6,18 @@ import {
   ShoppingCartOutlined,
 } from "@ant-design/icons";
 import { AnyAction } from "redux";
-import {navigation} from './helpers'
+import {navigation} from "./helpers"
 import uzFlag from "../../assets/Images/uzbFlag.jpg";
 import ruFlag from "../../assets/Images/rusFlag.jpg";
 import "./index.scss";
 import { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
+import { actionChangeLanguge } from "store/changeLanguage/action";
+import { AppDispatch } from "store/store";
 import Modal from "components/Modal/Modal";
 import Login from "components/Login/Login";
 import Registration from "components/Login/Registration";
-import { actionChangeLanguge } from "store/changeLanguage/action";
-import { AppDispatch } from "store/store";
+
 interface Dispatch {
   action: any;
   payload: boolean;
