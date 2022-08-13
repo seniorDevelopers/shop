@@ -1,0 +1,41 @@
+.card-wrapper {
+    outline: none;
+    width: 243px;
+    margin: 0 16px;
+    background-color: #fff;
+    padding: 38px 0;
+    border-radius: 8px;
+    text-align: center;
+    cursor: pointer;
+
+    img {
+        transition: all .4s ease;
+    }
+
+    img:hover {
+        transform: scale(1.1);
+    }
+
+    .card-wrapper__titles {
+        margin-top: 1.5rem;
+
+        &__title {
+            font-size: 17px;
+            font-weight: 500;
+            line-height: 25px;
+            color: #1d1d1d;
+            transition: .3s;
+        }
+
+        &__text {
+            margin-top: 8px;
+            font-size: 17px;
+            line-height: 26px;
+            color: #333;
+        }
+    }
+
+    &:hover .card-wrapper__titles__title {
+        color: #007bff;
+    }
+}
