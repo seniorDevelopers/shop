@@ -62,7 +62,7 @@ const Header = () => {
             // onMouseLeave={() => setSearchHidden(!searchHidden)}
           >
             {!searchHidden ? (
-              <SearchOutlined onClick={() => setSearchHidden(!searchHidden)} />
+              <SearchOutlined onClick={() =>setSearchHidden(!searchHidden)} />
             ) : (
               <div className="searchInput">
                 <SearchOutlined />
