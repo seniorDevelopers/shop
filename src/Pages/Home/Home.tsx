@@ -1,8 +1,9 @@
+import HomeHeader from 'Components/homeHeader/HomeHeader'
 import React from 'react'
 
 function Home() {
   return (
-    <div>Home</div>
+    <div><HomeHeader/></div>
   )
 }
 
