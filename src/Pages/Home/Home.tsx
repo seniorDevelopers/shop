@@ -1,7 +1,6 @@
 import { DeliveredProcedureOutlined } from "@ant-design/icons";
 import NewCard from "components/Cards/NewCard/NewCard";
 import ProductCard from "components/Cards/ProductCard/ProductCard";
-import Account from "pages/Account/Account";
 import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { actionGetProducts } from "store/products/action";
@@ -77,7 +76,6 @@ function Home() {
           <ProductCard img={nokia?.image} title={"Nokia"} id={nokia?.type}/>
         </div>
       </section>
-      <Account/>
     </>
   );
 }
