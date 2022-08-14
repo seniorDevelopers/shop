@@ -2,9 +2,13 @@ import React from 'react';
 import './Account.scss';
 
 const Account = () => {
+    const local:any = localStorage.getItem("user")
+    const data = JSON.parse(local)
+    
+
     return (
         <div className='globalContainer account-wrapper'>
-            <h1>Привет, Kimdir</h1>
+            <h1>Привет, {data?.username}</h1>
 
             <div className='settings'>
                 <div className='setting-top'>

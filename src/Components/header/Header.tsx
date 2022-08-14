@@ -85,7 +85,7 @@ const Header = () => {
           </div>
           <div className="icon">
             <Link to={"/cart"}>
-              <ShoppingCartOutlined style={{color: "white"}} />
+              <ShoppingCartOutlined style={{ color: "white" }} />
             </Link>
           </div>
           {user === null ? (
@@ -93,9 +93,11 @@ const Header = () => {
               <LoginOutlined onClick={() => setOpen(true)} />
             </div>
           ) : (
-            <div className="userData">
-              <img src="https://cdn-icons-png.flaticon.com/512/64/64572.png?w=360" alt="" />
-            </div>
+            <Link to={"/account"}>
+              <div className="userData">
+                <img src="https://cdn-icons-png.flaticon.com/512/64/64572.png?w=360" alt="" />
+              </div>
+            </Link>
           )}
           <div className="language">
             {!changeLanguage ? (
