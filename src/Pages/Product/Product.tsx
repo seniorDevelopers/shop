@@ -11,7 +11,8 @@ const Product = () => {
   const { changeLanguage } = useSelector((state: any) => state.changeLanguge);
   const [data, setData] = useState([]);
   const [sortData, setSortData] = useState([]);
-
+  const name = data.map((item:any) => !changeLanguage ? item.name_uz : item.name_ru)[0]
+  
   const brends = Array.from(new Set(data.map((item: any) => item.brend)));
   const price = data
     .map((item: any) =>
@@ -70,7 +71,7 @@ const Product = () => {
           className="slider"
         />
         <h6>{!changeLanguage ? "Brendlar" : "Бренды"}</h6>
-        {brends.map((item: any) => (
+        {brends?.map((item: any) => (
           <p key={item} id={item} onClick={(e) => sort(e)}>
             {item}
           </p>
@@ -78,10 +79,10 @@ const Product = () => {
       </aside>
       <div className="productBox">
         <h6>
-          {!changeLanguage ? "Bosh sahifa" : "Главная"} <b>{">"}</b> Смартфоны
+          {!changeLanguage ? "Bosh sahifa" : "Главная"} <b>{">"}</b> {name}
         </h6>
         <div className="titleBox">
-          <h3>Смартфоны</h3>
+          <h3>{name}</h3>
 
           <Select defaultValue="All solutions" style={{ width: "200px" }}>
             <Option value={"Xurshid"}>Xurshid</Option>
@@ -90,16 +91,16 @@ const Product = () => {
         <div className="cardContainer">
           {sortData.length === 0
             ? !value
-              ? data.map((item: any) => (
+              ? data?.map((item: any) => (
                   <BuyCard
                     img={item.image}
-                    title={item.model_uz}
-                    price={item.price_uz}
+                    title={!changeLanguage ? item.model_uz : item.model_ru}
+                    price={!changeLanguage ? item.price_uz : item.price_ru}
                     key={item.id}
                   />
                 ))
               : data
-                  .filter(
+                  ?.filter(
                     (item: any) =>
                       Number(
                         item.price_ru
@@ -110,25 +111,25 @@ const Product = () => {
                           .join("")
                       ) >= value
                   )
-                  .map((item: any) => (
+                  ?.map((item: any) => (
                     <BuyCard
                       img={item.image}
-                      title={item.model_uz}
-                      price={item.price_uz}
+                      title={!changeLanguage ? item.model_uz : item.model_ru}
+                      price={!changeLanguage ? item.price_uz : item.price_ru}
                       key={item.id}
                     />
                   ))
             : !value
-            ? sortData.map((item: any) => (
+            ? sortData?.map((item: any) => (
                 <BuyCard
                   img={item.image}
-                  title={item.model_uz}
-                  price={item.price_uz}
+                  title={!changeLanguage ? item.model_uz : item.model_ru}
+                  price={!changeLanguage ? item.price_uz : item.price_ru}
                   key={item.id}
                 />
               ))
             : sortData
-                .filter(
+                ?.filter(
                   (item: any) =>
                     Number(
                       item.price_ru
@@ -139,11 +140,11 @@ const Product = () => {
                         .join("")
                     ) >= value
                 )
-                .map((item: any) => (
+                ?.map((item: any) => (
                   <BuyCard
                     img={item.image}
-                    title={item.model_uz}
-                    price={item.price_uz}
+                    title={!changeLanguage ? item.model_uz : item.model_ru}
+                    price={!changeLanguage ? item.price_uz : item.price_ru}
                     key={item.id}
                   />
                 ))}
