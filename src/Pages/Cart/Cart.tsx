@@ -9,7 +9,7 @@ const Cart = () => {
 
             <div>
                 <Result
-                    status="403"
+                    status="404"
                     title="Вы еще не добавили ни одного товара в корзину"
                     extra={<Button type="primary">Закажи прямо сейчас</Button>}
                 />
