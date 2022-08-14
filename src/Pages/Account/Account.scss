@@ -1,10 +1,12 @@
 .account-wrapper {
-    margin-top: 4rem;
+    padding-top: 2.5rem;
 
     .settings {
         width: 100%;
-        border: 2px solid #000;
-        padding: 2rem;
+        border-radius: 8px;
+        border: 2px solid #ccc;
+        padding: 4rem;
+        
 
         .setting-top {
             display: flex;
@@ -47,6 +49,44 @@
                     border: transparent;
                     cursor: pointer;
                     font-size: 18px;
+                }
+            }
+        }
+
+        .setting-body {
+
+            .profile-img {
+                border-radius: 50%;
+                margin-left: 60rem;
+            }
+            .setting-body__titles-group {
+                margin-top: -5rem;
+                display: flex;
+                flex-direction: row;
+                gap: 15rem;
+
+                &__titles {
+                    &__title {
+                        margin-bottom: 2rem;
+                        line-height: 1.6;
+                        font-size: 20px;
+                        font-weight: 600;
+                        font-family: "San-Francisco", sans-serif;
+                    }
+
+                }
+
+                .setting-body__titles-group-titles2 {
+                    display: flex;
+                    flex-direction: column;
+                    gap: 2.5rem;
+
+                    &__text {
+                        line-height: 1.6;
+                        font-size: 18px;
+                        font-weight: 400;
+                        font-family: "San-Francisco", sans-serif;
+                    }
                 }
             }
         }

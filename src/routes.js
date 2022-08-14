@@ -1,3 +1,4 @@
+import Account from "pages/Account/Account";
 import Cart from "./pages/Cart/Cart";
 import Favorites from "./pages/Favorites/Favorites";
 import Home from "./pages/Home/Home";
@@ -8,5 +9,6 @@ const routes = [
   { path: `/product/:nameProduct`, element: <Product/> },
   { path: `/favorites`, element: <Favorites/> },
   { path: `/cart`, element: <Cart/> },
+  { path: `/account`, element: <Account/> }
 ];
 export default routes;
