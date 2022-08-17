@@ -8,6 +8,7 @@ import { useDispatch, useSelector } from "react-redux";
 import BuyCard from "components/Cards/BuyCard/BuyCard";
 import { actionBoolean } from "store/boolean/action";
 import { AppDispatch } from "store/store";
+import { message } from "antd";
 
 const Product = () => {
   const params = useParams();
@@ -53,6 +54,23 @@ const Product = () => {
   const local: any = localStorage.getItem("user");
   const userId = JSON.parse(local);
 
+  const key = "updatable";
+  const openMessage = () => {
+    message.loading({
+      content: !changeLanguage ? "Yuklanmoqda..." : "Загрузка...",
+      key,
+    });
+    setTimeout(() => {
+      message.success({
+        content: !changeLanguage
+          ? "Mahsulot qo'shildi..."
+          : "Товар добавлен...",
+        key,
+        duration: 2,
+      });
+    }, 1000);
+  };
+
   const addFavorite = (id: string): any => {
     if (userId === null) {
       alert("Iltimos tizimga kiring...!!");
@@ -64,6 +82,7 @@ const Product = () => {
           user_id: userId.id,
           data: res.data,
         };
+        openMessage();
         API.post("/favorite", dataa).then((res) => {
           if (res.status === 201) {
             setRender(!render);
@@ -76,6 +95,7 @@ const Product = () => {
   const trueFunc = (id: string): any => {
     return favData?.filter((item: any) => item.data.id === id).length > 0;
   };
+
   useEffect(() => {
     API.get("/products").then((res) => {
       setData(res.data.filter((item: any) => item.type === params.nameProduct));

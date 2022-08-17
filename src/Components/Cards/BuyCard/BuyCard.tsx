@@ -1,7 +1,5 @@
-import React, { useEffect, useState } from "react";
 import { HeartOutlined } from "@ant-design/icons";
 import "./BuyCard.scss";
-import API from "services/rootApi";
 
 interface Types {
   img: string;
@@ -13,6 +11,12 @@ interface Types {
 }
 
 const BuyCard = ({ img, title, price, id, trueFunc, addFavorite }: Types) => {
+  const addProduct = () =>{
+    addFavorite(id)
+  }
+  const removProduct = () =>{
+    alert(`Xali "dalete" function yoq`)
+  }
   return (
     <div className="buy-card-wrapper">
       <img style={{ maxWidth: "100%" }} src={img} alt={title} />
@@ -23,7 +27,7 @@ const BuyCard = ({ img, title, price, id, trueFunc, addFavorite }: Types) => {
       <div className="buy-card-wrapper__icons">
         <button
           className={trueFunc(id) ? "btn2" : "buy-card-wrapper__icons__btn"}
-          onClick={() => addFavorite(id)}
+          onClick={trueFunc(id) ? removProduct : addProduct }
         >
           {trueFunc(id) ? "Savatdan o'chirish" : "Sotib olish"}
         </button>
