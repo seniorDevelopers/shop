@@ -4,13 +4,20 @@ import "./Product.scss";
 import { Select, Slider } from "antd";
 import { Option } from "antd/lib/mentions";
 import API from "services/rootApi";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import BuyCard from "components/Cards/BuyCard/BuyCard";
+import { actionBoolean } from "store/boolean/action";
+import { AppDispatch } from "store/store";
+
 const Product = () => {
   const params = useParams();
+  const dispatch: AppDispatch = useDispatch();
   const { changeLanguage } = useSelector((state: any) => state.changeLanguge);
+  const { dataBoolean } = useSelector((state: any) => state.dataBoolean);
   const [data, setData] = useState([]);
+  const [favData, setFavData] = useState([]);
   const [sortData, setSortData] = useState([]);
+  const [render, setRender] = useState(false);
   const name = data.map((item: any) =>
     !changeLanguage ? item.name_uz : item.name_ru
   )[0];
@@ -28,7 +35,6 @@ const Product = () => {
     )
     .sort((a, b) => a - b);
   const [value, setValue] = useState(price[0]);
-  console.log(price);
 
   const range = data.filter((item: any) =>
     !changeLanguage
@@ -39,16 +45,46 @@ const Product = () => {
           item.price_ru.split("").slice(0, -5).join("").split(" ").join("")
         ) >= value
   );
-  console.log(range, "bu range");
 
   const sort = (e: any) => {
     setSortData(data.filter((item: any) => item.brend === e.target.id));
+  };
+
+  const local: any = localStorage.getItem("user");
+  const userId = JSON.parse(local);
+
+  const addFavorite = (id: string): any => {
+    if (userId === null) {
+      alert("Iltimos tizimga kiring...!!");
+    }
+
+    API.get(`/products/${id}`).then((res) => {
+      if (res.status === 200) {
+        const dataa = {
+          user_id: userId.id,
+          data: res.data,
+        };
+        API.post("/favorite", dataa).then((res) => {
+          if (res.status === 201) {
+            setRender(!render);
+            dispatch(actionBoolean(!dataBoolean));
+          }
+        });
+      }
+    });
+  };
+  const trueFunc = (id: string): any => {
+    return favData?.filter((item: any) => item.data.id === id).length > 0;
   };
   useEffect(() => {
     API.get("/products").then((res) => {
       setData(res.data.filter((item: any) => item.type === params.nameProduct));
     });
-  }, []);
+    API.get("/favorite").then((res) => {
+      setFavData(res.data);
+    });
+  }, [render]);
+
   return (
     <section className="productContainer globalContainer">
       {data.length > 0 ? (
@@ -105,7 +141,10 @@ const Product = () => {
                         img={item.image}
                         title={!changeLanguage ? item.model_uz : item.model_ru}
                         price={!changeLanguage ? item.price_uz : item.price_ru}
+                        id={item.id}
                         key={item.id}
+                        trueFunc={trueFunc}
+                        addFavorite={addFavorite}
                       />
                     ))
                   : data
@@ -137,7 +176,10 @@ const Product = () => {
                           price={
                             !changeLanguage ? item.price_uz : item.price_ru
                           }
+                          id={item.id}
                           key={item.id}
+                          trueFunc={trueFunc}
+                          addFavorite={addFavorite}
                         />
                       ))
                 : !value
@@ -146,7 +188,10 @@ const Product = () => {
                       img={item.image}
                       title={!changeLanguage ? item.model_uz : item.model_ru}
                       price={!changeLanguage ? item.price_uz : item.price_ru}
+                      id={item.id}
                       key={item.id}
+                      addFavorite={addFavorite}
+                      trueFunc={trueFunc}
                     />
                   ))
                 : sortData
@@ -174,7 +219,10 @@ const Product = () => {
                         img={item.image}
                         title={!changeLanguage ? item.model_uz : item.model_ru}
                         price={!changeLanguage ? item.price_uz : item.price_ru}
+                        id={item.id}
                         key={item.id}
+                        trueFunc={trueFunc}
+                        addFavorite={addFavorite}
                       />
                     ))}
             </div>
