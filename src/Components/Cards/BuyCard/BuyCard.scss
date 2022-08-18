@@ -14,8 +14,10 @@
   }
 
   .buy-card-wrapper__titles {
+    position: absolute;
     text-align: left;
     padding-top: 30px;
+    bottom: 8rem;
 
     .buy-card-wrapper__titles__title {
       font-size: 16px;
@@ -48,6 +50,15 @@
     &__btn {
       background-color: #f5363e;
       border: 1px solid #f5363e;
+      font-size: 18px;
+      color: #fff;
+      padding: 5px 12px;
+      border-radius: 8px;
+      cursor: pointer;
+    }
+    .btn2{
+      background-color: rgb(31, 143, 35);
+      border: 1px solid rgb(31, 143, 35);
       font-size: 18px;
       color: #fff;
       padding: 5px 12px;

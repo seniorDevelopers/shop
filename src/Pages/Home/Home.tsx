@@ -8,6 +8,8 @@ import { AppDispatch } from "store/store";
 import "./Home.scss";
 function Home() {
   const { allPoducts } = useSelector((state: any) => state.getProducts);
+  const { changeLanguage } = useSelector((state: any) => state.changeLanguge);
+
   console.log(allPoducts, "allPoducts");
 
   const dispatch: AppDispatch = useDispatch();
@@ -30,12 +32,12 @@ function Home() {
     <>
       <section className="homeContainer">
         <div className="title globalContainer">
-          <h3>Новый</h3>
+          <h3>{!changeLanguage ? "Yangi" : "Новый"}</h3>
           <h2>
             iPhone 13 Pro <br />
             Max
           </h2>
-          <h4>Просто. Нереально.</h4>
+          <h4>{!changeLanguage ? "Juda ham ajoyib" : "Просто. Нереально."}</h4>
           <button>Купить</button>
         </div>
         <div>
@@ -58,6 +60,7 @@ function Home() {
               img={item.image}
               price={item.price_uz}
               title={item.model_uz}
+              id={item.type}
               key={item.id}
             />
           ))}
@@ -65,7 +68,7 @@ function Home() {
       </section>
 
       <section className="phone globalContainer" id="phone">
-        <h6>Phones</h6>
+        <h6>Телефоны</h6>
         <div className="phonesCards">
           <ProductCard img={samsung?.image} title={"Samsung"} id={samsung?.type}/>
           <ProductCard img={apple?.image} title={"iPhone"} id={apple?.type}/>
