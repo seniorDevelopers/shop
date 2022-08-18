@@ -1,5 +1,5 @@
-import Home from "./pages/Home/Home";
-import Product from "./pages/Product/Product";
+import Home from "../src/Pages/Home/Home";
+import Product from "../src/Pages/Product/Product";
 
 const routes = [
   { path: `/`, element: <Home/> },
