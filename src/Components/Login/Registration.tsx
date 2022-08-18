@@ -13,7 +13,6 @@ const Registration = ({ setTab, setOpen }: any) => {
   console.log(allUsers, "Hamma userlar");
   const [username, setUsername] = useState<string>("");
   const [email, setEmail] = useState<string>("");
-
   const key = "updatable";
 
   const openMessage = () => {

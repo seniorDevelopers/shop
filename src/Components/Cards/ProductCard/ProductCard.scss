@@ -1,0 +1,21 @@
+.c-wrapper {
+  box-shadow: rgb(99 99 99 / 20%) 0px 2px 8px 0px;
+  border-radius: 18px;
+  background-color: #fff;
+  padding: 30px 20px;
+  cursor: pointer;
+  text-align: center;  
+  p {
+    font-size: 18px;
+    font-weight: 800;
+    padding-bottom: 20px;
+  }
+  img {
+    height: 170px;
+    transition: all 0.4s ease;
+    width: auto;
+    &:hover {
+      transform: scale(1.1);
+    }
+  }
+}

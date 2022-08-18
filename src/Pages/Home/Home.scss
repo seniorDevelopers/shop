@@ -1,0 +1,70 @@
+.homeContainer {
+  position: relative;
+  background-color: #000;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  height: 90vh;
+  overflow: hidden;
+  .title {
+    position: relative;
+    z-index: 2;
+    left: 150px;
+    h4 {
+      color: #fff;
+      font-size: 25px;
+    }
+    h3 {
+      color: #f56300;
+      font-size: 25px;
+    }
+    h2 {
+      color: #fff;
+      font-size: 60px;
+      line-height: 1;
+      padding: 10px 0;
+    }
+    button {
+      background-color: #0071e3;
+      padding: 5px 20px;
+      color: #fff;
+      font-size: 18px;
+      border: none;
+      border-radius: 20px;
+      margin-top: 30px;
+      cursor: pointer;
+    }
+  }
+  .remoteVideo {
+    position: absolute;
+    top: 0;
+    z-index: 1;
+    width: 100vw;
+    height: 90vh;
+  }
+}
+.newCard {
+  h6 {
+    margin-top: 100px;
+    text-align: center;
+    font-size: 50px;
+    color: #000;
+  }
+  .newCards {
+    display: grid;
+    grid-template-columns: auto auto auto auto;
+  }
+}
+.phone {
+  h6 {
+    margin-top: 100px;
+    text-align: center;
+    font-size: 50px;
+    color: #000;
+  }
+  .phonesCards {
+    display: grid;
+    grid-template-columns: auto auto auto auto;
+    gap: 20px;
+  }
+}

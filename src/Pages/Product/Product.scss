@@ -1,7 +1,7 @@
 .productContainer {
   display: flex;
   aside {
-    width: 300px;
+    width: 320px;
     padding-top: 45px;
     padding-right: 20px;
     h3 {
@@ -26,6 +26,12 @@
     .slider {
       margin-top: 20px;
     }
+    p {
+      text-transform: capitalize;
+      cursor: pointer;
+      font-size: 18px;
+      margin-top: 10px;
+    }
   }
   .productBox {
     padding-top: 45px;
@@ -46,27 +52,8 @@
     .cardContainer {
       display: grid;
       grid-template-columns: 1fr 1fr 1fr 1fr;
-      gap: 20px;
       padding-top: 50px;
-      .card {
-        padding: 10px;
-        display: inline-block;
-        border: 1px solid #000;
-        border-radius: 10px;
-
-        p {
-          font-size: 16px;
-          padding-bottom: 10px;
-        }
-        button {
-          padding: 10px;
-          background-color: darkred;
-          border-radius: 10px;
-          color: #fff;
-          font-size: 16px;
-          border: none;
-        }
-      }
+      gap: 20px;
     }
   }
 }

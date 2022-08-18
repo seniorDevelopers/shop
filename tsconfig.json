@@ -28,6 +28,10 @@
       "components/*": ["components/*"]
     }
   },
+<<<<<<< HEAD
   "include": ["react-app-env.d.ts", "**/*.ts", "**/*.tsx", "plopfile.js", "src/Components/header/helpers.ts"],
+=======
+  "include": ["react-app-env.d.ts", "**/*.ts", "**/*.tsx", "plopfile.js", "src/routes.js"],
+>>>>>>> 13b2689ab2c9cdd1e19818c914c43024de8c0aec
   "exclude": ["node_modules"]
 }
