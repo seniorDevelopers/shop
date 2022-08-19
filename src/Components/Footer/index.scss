@@ -1,0 +1,36 @@
+// .homeContainer {
+  // margin-top: 30px;
+
+.container {
+  margin-top: 30px;
+  display: flex;
+  justify-content: space-around;
+  .box {
+    .headText {
+      font-size: 14px;
+      font-family: "San-Francisco", sans-serif;
+      font-weight: 600;
+      line-height: 18px;
+      margin-bottom: 15px;
+    }
+    .mainText {
+      font-size: 14px;
+      line-height: 18px;
+      text-decoration: none;
+      color: #515154;
+      margin: 10px 0;
+    }
+    .iconBox {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 8px;
+
+      .icon {
+        font-size: 1.5rem;
+        fill: currentColor;
+      }
+    }
+  }
+}
+// }
