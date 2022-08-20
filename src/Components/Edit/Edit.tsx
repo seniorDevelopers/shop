@@ -1,4 +1,4 @@
-import React, { useRef, useState } from 'react';
+import React from 'react';
 import { useSelector } from 'react-redux';
 import { CloseOutlined } from '@ant-design/icons';
 import { Input, Button } from 'antd';
@@ -17,9 +17,6 @@ const Edit = ({ closeModal }: Types) => {
   const getData = (e: any) => {
     console.log(e.target.value);
   }
-
-  const [image, setImage] = useState<any>();
-  const fileInputRef = useRef<any>()
 
 
   return (
@@ -40,17 +37,7 @@ const Edit = ({ closeModal }: Types) => {
         <Input placeholder={!changeLanguage ? "Familiya" : "Фамилия"} />
         <Input type='number' placeholder={!changeLanguage ? "Familiya" : "Фамилия"} />
         <TextArea placeholder={!changeLanguage ? "Yetkazish manzili" : "Адрес доставки"} rows={2} />
-        <Input type='file' id='file' accept='image/*'
-        ref={fileInputRef}
-        onChange={(event: any) => {
-          const file = event.target.files[0];
-          if(file) {
-            setImage(file && file.type.substr(0, 5) === 'image')
-          } else {
-            setImage(null)
-          }
-        }}
-        />
+        <Input type='file' id='file' accept='image/*' />
       </form>
 
       <div className='btn-wrapper'>
