@@ -6,8 +6,8 @@ import {
   ShoppingCartOutlined,
 } from "@ant-design/icons";
 import { AnyAction } from "redux";
-import uzFlag from "Assets/Images/uzbFlag.jpg"
-import ruFlag from "Assets/Images/rusFlag.jpg"
+import uzFlag from "assets/Images/uzbFlag.jpg"
+import ruFlag from "assets/Images/rusFlag.jpg"
 import "./index.scss";
 import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
@@ -18,10 +18,6 @@ import Modal from "components/Modal/Modal";
 import Login from "components/Login/Login";
 import Registration from "components/Login/Registration";
 import { navigation } from "./helpers";
-interface Dispatch {
-  action: any;
-  payload: boolean;
-}
 
 import { Link } from "react-router-dom";
 import API from "services/rootApi";
@@ -91,7 +87,7 @@ const Header = () => {
           <div
             className="icon"
 
-            // onMouseLeave={() => setSearchHidden(!searchHidden)}
+          // onMouseLeave={() => setSearchHidden(!searchHidden)}
           >
             {!searchHidden ? (
               <SearchOutlined onClick={() => setSearchHidden(!searchHidden)} />

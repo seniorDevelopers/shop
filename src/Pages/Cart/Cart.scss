@@ -4,3 +4,12 @@
         font-size: 35px;
     }
 }
+.displayCards{
+    display: flex;
+    gap: 50px;
+    .deleteCards{
+        display:flex;
+        flex-direction: column;
+        gap: 20px;
+    }
+}
