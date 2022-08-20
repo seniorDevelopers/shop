@@ -1,4 +1,4 @@
-import Layout from "Components/Layout/Layout";
+import Layout from "components/Layout/Layout";
 import { Routes, Route } from "react-router-dom";
 import routes from "./routes";
 

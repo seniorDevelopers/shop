@@ -13,21 +13,21 @@ import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { actionChangeLanguge } from "store/changeLanguage/action";
 import { AppDispatch } from "store/store";
-<<<<<<< HEAD
-import Modal from "Components/Modal/Modal";
-import Login from "Components/Login/Login";
-import Registration from "Components/Login/Registration";
-import { navigation } from "./helpers";
+
+import Modal from "components/Modal/Modal";
+import Login from "components/Login/Login";
+import Registration from "components/Login/Registration";
+import { navigation } from "../header/helpers";
 interface Dispatch {
   action: any;
   payload: boolean;
 }
-=======
+
 import { Link } from "react-router-dom";
 import API from "services/rootApi";
 import { actionCartCount } from "store/cartCount/action";
 
->>>>>>> 13b2689ab2c9cdd1e19818c914c43024de8c0aec
+
 const Header = () => {
   const { changeLanguage } = useSelector((state: any) => state.changeLanguge);
   const { dataBoolean } = useSelector((state: any) => state.dataBoolean);

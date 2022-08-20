@@ -1,8 +1,8 @@
-<<<<<<< HEAD
-import HomeHeader from 'Components/homeHeader/HomeHeader'
-import React from 'react'
 
-=======
+import HomeHeader from 'components/homeHeader/HomeHeader'
+
+
+
 import { DeliveredProcedureOutlined } from "@ant-design/icons";
 import NewCard from "components/Cards/NewCard/NewCard";
 import ProductCard from "components/Cards/ProductCard/ProductCard";
@@ -11,7 +11,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { actionGetProducts } from "store/products/action";
 import { AppDispatch } from "store/store";
 import "./Home.scss";
->>>>>>> 13b2689ab2c9cdd1e19818c914c43024de8c0aec
+
 function Home() {
   const { allPoducts } = useSelector((state: any) => state.getProducts);
   const { changeLanguage } = useSelector((state: any) => state.changeLanguge);
@@ -35,11 +35,11 @@ function Home() {
   }, []);
 
   return (
-<<<<<<< HEAD
-    <div><HomeHeader/></div>
-  )
-=======
+
+    
+    
     <>
+    <div><HomeHeader/></div>
       <section className="homeContainer">
         <div className="title globalContainer">
           <h3>{!changeLanguage ? "Yangi" : "Новый"}</h3>
@@ -88,7 +88,6 @@ function Home() {
       </section>
     </>
   );
->>>>>>> 13b2689ab2c9cdd1e19818c914c43024de8c0aec
 }
 
 export default Home;
