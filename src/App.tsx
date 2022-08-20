@@ -1,7 +1,6 @@
 import Layout from "components/Layout/Layout";
 import { Routes, Route } from "react-router-dom";
 import routes from "./routes";
-
 function App() {
   return (
     <Layout>

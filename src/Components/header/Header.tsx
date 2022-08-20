@@ -6,9 +6,9 @@ import {
   ShoppingCartOutlined,
 } from "@ant-design/icons";
 import { AnyAction } from "redux";
-import { navigation } from "./helpers";
-import uzFlag from "../../assets/Images/uzbFlag.jpg";
-import ruFlag from "../../assets/Images/rusFlag.jpg";
+
+import uzFlag from "assets/Images/uzbFlag.jpg"
+import ruFlag from "assets/Images/rusFlag.jpg"
 import "./index.scss";
 import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
@@ -17,9 +17,11 @@ import { AppDispatch } from "store/store";
 import Modal from "components/Modal/Modal";
 import Login from "components/Login/Login";
 import Registration from "components/Login/Registration";
+import { navigation } from "./helpers";
 import { Link } from "react-router-dom";
 import API from "services/rootApi";
 import { actionCartCount } from "store/cartCount/action";
+
 
 const Header = () => {
   const { changeLanguage } = useSelector((state: any) => state.changeLanguge);
@@ -84,7 +86,7 @@ const Header = () => {
           <div
             className="icon"
 
-            // onMouseLeave={() => setSearchHidden(!searchHidden)}
+          // onMouseLeave={() => setSearchHidden(!searchHidden)}
           >
             {!searchHidden ? (
               <SearchOutlined onClick={() => setSearchHidden(!searchHidden)} />
