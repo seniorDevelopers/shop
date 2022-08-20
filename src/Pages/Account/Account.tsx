@@ -6,19 +6,17 @@ import Edit from "components/Edit/Edit";
 import "./Account.scss";
 
 const Account = () => {
-  const [open, setOpen] = useState(false);
-
-  const openModal = () => {
-    setOpen(!open);
-  };
-
   const { changeLanguage } = useSelector((state: any) => state.changeLanguge);
-
+  const [open, setOpen] = useState(false);
   const navigate = useNavigate();
 
   const local: any = localStorage.getItem("user");
   const data = JSON.parse(local);
-
+  
+  const openModal = () => {
+    setOpen(!open);
+  };
+  
   const toHome = () => {
     localStorage.removeItem("user");
     navigate("/");
@@ -42,7 +40,6 @@ const Account = () => {
                 onClick={openModal}
                 className="setting-top__btns__btn-blue"
               >
-                {" "}
                 {!changeLanguage ? "Tahrirlash" : "Редактировать"}
               </button>
               <button onClick={toHome} className="setting-top__btns__btn">
@@ -89,15 +86,17 @@ const Account = () => {
               </div>
               <div className="setting-body__titles-group-titles2">
                 <p className="setting-body__titles-group-titles2__text">
-                  KImdir
+                  {data?.first_name ? data?.first_name : "----"}
                 </p>
                 <p className="setting-body__titles-group-titles2__text">
-                  Kimdir
+                {data?.last_name ? data?.last_name : "----"}
                 </p>
                 <p className="setting-body__titles-group-titles2__text">
-                  Nechidir
+                {data?.number ? data?.number : "----"}
                 </p>
-                <p className="setting-body__titles-group-titles2__text">----</p>
+                <p className="setting-body__titles-group-titles2__text">
+                {data?.address ? data?.address : "----"}
+                </p>
               </div>
             </div>
           </div>

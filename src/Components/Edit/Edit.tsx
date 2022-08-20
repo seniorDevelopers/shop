@@ -1,26 +1,49 @@
-import React, { useRef, useState } from 'react';
+import React, { useState } from 'react';
 import { useSelector } from 'react-redux';
 import { CloseOutlined } from '@ant-design/icons';
 import { Input, Button } from 'antd';
 import './Edit.scss';
+import API from 'services/rootApi';
 
-interface Types {
+interface Type {
   closeModal: any,
 }
 
-const { TextArea } = Input;
-
-const Edit = ({ closeModal }: Types) => {
+const Edit = ({ closeModal }: Type) => {
 
   const { changeLanguage } = useSelector((state: any) => state.changeLanguge);
 
-  const getData = (e: any) => {
-    console.log(e.target.value);
-  }
+  const local: any = localStorage.getItem("user");
+  const data = JSON.parse(local);
 
   const [image, setImage] = useState<any>();
-  const fileInputRef = useRef<any>()
+  const [firstName, setFirstName] = useState(data.first_name);
+  const [lastName, setLastName] = useState(data.last_name);
+  const [number, setNumber] = useState(data.number);
+  const [address, setaddress] = useState(data.address);
 
+
+  const onSubmit = () => {
+    const dataa: any = {
+      username: data.username,
+      email: data.email,
+      first_name: firstName?.length === 0 ? data.first_name : firstName,
+      last_name: lastName?.length === 0 ? data.last_name : lastName,
+      number: number?.length === 0 ? data.number : number,
+      address: address?.length === 0 ? data.address : address,
+      image: null,
+      id: data.id
+    }
+
+    if (local !== null) {
+      API.put(`/user/${data.id}`, dataa).then(res => {
+        if (res.status === 200) {
+          localStorage.setItem("user", JSON.stringify(dataa));
+          closeModal(false);
+        }
+      })
+    }
+  }
 
   return (
     <div className='edit-container'>
@@ -36,24 +59,14 @@ const Edit = ({ closeModal }: Types) => {
       </div>
 
       <form className='form'>
-        <Input onChange={getData} placeholder={!changeLanguage ? "Ism" : "Имя"} />
-        <Input placeholder={!changeLanguage ? "Familiya" : "Фамилия"} />
-        <Input type='number' placeholder={!changeLanguage ? "Familiya" : "Фамилия"} />
-        <TextArea placeholder={!changeLanguage ? "Yetkazish manzili" : "Адрес доставки"} rows={2} />
-        <Input type='file' id='file' accept='image/*'
-        ref={fileInputRef}
-        onChange={(event: any) => {
-          const file = event.target.files[0];
-          if(file) {
-            setImage(file && file.type.substr(0, 5) === 'image')
-          } else {
-            setImage(null)
-          }
-        }}
-        />
+        <Input onChange={(e: any) => setFirstName(e.target.value)} value={firstName} placeholder={!changeLanguage ? "Ism" : "Имя"} />
+        <Input onChange={(e: any) => setLastName(e.target.value)} value={lastName} placeholder={!changeLanguage ? "Familiya" : "Фамилия"} />
+        <Input onChange={(e: any) => setNumber(e.target.value)} value={number} type='number' placeholder={!changeLanguage ? "Raqam" : "Номер"} />
+        <Input onChange={(e: any) => setaddress(e.target.value)} value={address} placeholder={!changeLanguage ? "Yetkazish manzili" : "Адрес доставки"} />
+        <Input onChange={(e: any) => setImage(e.target.files[0])} type='file' id='file' accept='image/*' />
       </form>
 
-      <div className='btn-wrapper'>
+      <div className='btn-wrapper' onClick={onSubmit}>
         <Button className='edit-btn' type="primary">{!changeLanguage ? "Tahrirlash" : "Редактировать"}</Button>
       </div>
     </div>
