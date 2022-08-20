@@ -8,7 +8,7 @@ const { Footer } = Layout;
 const FooterContainer = () => {
   return (
     <>
-      <Layout style={{marginTop: 30}}>
+      <Layout style={{marginTop: "7rem"}}>
         <Footer className="container globalContainer">
           <div className="salesProduct ">
             {dataBought.map((item) => (
