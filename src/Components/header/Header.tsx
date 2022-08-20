@@ -17,7 +17,7 @@ import { AppDispatch } from "store/store";
 import Modal from "components/Modal/Modal";
 import Login from "components/Login/Login";
 import Registration from "components/Login/Registration";
-import { navigation } from "../header/helpers";
+import { navigation } from "./helpers";
 interface Dispatch {
   action: any;
   payload: boolean;
@@ -50,13 +50,19 @@ const Header = () => {
   const user: any = localStorage.getItem("user");
   const userObj = JSON.parse(user);
 
-  console.log(cartCount, "cartCount cartCount");
+  console.log(user, "cartCount cartCount");
 
   useEffect(() => {
     API.get("/favorite").then((res) => {
       if (res.status === 200) {
-        const data = res.data?.filter((item: any) => item.user_id === userObj.id)
-        dispatch(actionCartCount(data.length));
+        if (user !== null) {
+          const data = res.data?.filter(
+            (item: any) => item.user_id === userObj?.id
+          );
+          dispatch(actionCartCount(data.length));
+        } else {
+          dispatch(actionCartCount(0));
+        }
       }
     });
   }, [dataBoolean]);
@@ -75,9 +81,9 @@ const Header = () => {
         <ul hidden={searchHidden}>
           {navigation.map((item) => (
             <li key={item.name_uz}>
-              <a href={item.id}>
+              <Link to={`/product/${item.id}`}>
                 {!changeLanguage ? item.name_uz : item.name_ru}
-              </a>
+              </Link>
             </li>
           ))}
         </ul>
@@ -110,7 +116,9 @@ const Header = () => {
             <Link to={"/cart"}>
               <ShoppingCartOutlined style={{ color: "white" }} />
             </Link>
-            <span className="count" hidden={cartCount >= 1 ? false : true }>{cartCount}</span>
+            <span className="count" hidden={cartCount >= 1 ? false : true}>
+              {cartCount}
+            </span>
           </div>
           {user === null ? (
             <div className="icon">

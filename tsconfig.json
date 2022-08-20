@@ -29,7 +29,7 @@
     }
   },
 
-  "include": ["react-app-env.d.ts", "**/*.ts", "**/*.tsx", "plopfile.js","src/routes.js", "src/Components/header/helpers.ts"],
+  "include": ["react-app-env.d.ts", "**/*.ts", "**/*.tsx", "plopfile.js","src/routes.js", "src/components/Header/helpers.ts"],
 
  
 

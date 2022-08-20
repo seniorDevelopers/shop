@@ -1,8 +1,8 @@
-import Home from "Pages/Home/Home";
-import Product from "Pages/Product/Product";
-import Account from "Pages/Account/Account";
-import Cart from "./Pages/Cart/Cart";
-import Favorites from "./Pages/Favorites/Favorites";
+import Home from "pages/Home/Home";
+import Product from "pages/Product/Product";
+import Account from "pages/Account/Account";
+import Cart from "./pages/Cart/Cart";
+import Favorites from "./pages/Favorites/Favorites";
 
 
 const routes = [
