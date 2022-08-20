@@ -101,7 +101,7 @@ const Product = () => {
       setData(res.data.filter((item: any) => item.type === params.nameProduct));
     });
     API.get("/favorite").then((res) => {
-      setFavData(res.data);
+      setFavData(res.data.filter((item:any) => item.user_id === userId.id));
     });
   }, [render]);
 

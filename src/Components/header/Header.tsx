@@ -43,15 +43,19 @@ const Header = () => {
   const user: any = localStorage.getItem("user");
   const userObj = JSON.parse(user);
 
-  console.log(cartCount, "cartCount cartCount");
+  console.log(user, "cartCount cartCount");
 
   useEffect(() => {
     API.get("/favorite").then((res) => {
       if (res.status === 200) {
-        const data = res.data?.filter(
-          (item: any) => item.user_id === userObj.id
-        );
-        dispatch(actionCartCount(data.length));
+        if (user !== null) {
+          const data = res.data?.filter(
+            (item: any) => item.user_id === userObj?.id
+          );
+          dispatch(actionCartCount(data.length));
+        } else {
+          dispatch(actionCartCount(0));
+        }
       }
     });
   }, [dataBoolean]);

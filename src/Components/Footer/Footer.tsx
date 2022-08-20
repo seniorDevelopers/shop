@@ -1,16 +1,16 @@
 import React from "react";
 import "./index.scss";
-import { Layout } from "antd";
-const { Footer } = Layout;
 import { dataBought, dataCompony, dataInformation, dataContact } from "./help";
 import { AmazonOutlined, FacebookOutlined, InstagramOutlined, TwitterOutlined, YoutubeOutlined } from "@ant-design/icons";
+import { Layout } from "antd";
+const { Footer } = Layout;
 
 const FooterContainer = () => {
   return (
     <>
       <Layout style={{marginTop: 30}}>
-        <Footer className="container">
-          <div className="salesProduct">
+        <Footer className="container globalContainer">
+          <div className="salesProduct ">
             {dataBought.map((item) => (
               <div key={item.name_ru} className="box">
                 <p className="headText">{item.head_ru}</p>
