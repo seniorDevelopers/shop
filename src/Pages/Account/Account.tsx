@@ -89,15 +89,15 @@ const Account = () => {
               </div>
               <div className="setting-body__titles-group-titles2">
                 <p className="setting-body__titles-group-titles2__text">
-                  KImdir
+                  {data?.first_name}
                 </p>
                 <p className="setting-body__titles-group-titles2__text">
-                  Kimdir
+                  {data?.last_name}
                 </p>
                 <p className="setting-body__titles-group-titles2__text">
-                  Nechidir
+                  {data?.number}
                 </p>
-                <p className="setting-body__titles-group-titles2__text">----</p>
+                <p className="setting-body__titles-group-titles2__text">  {data?.address}</p>
               </div>
             </div>
           </div>
