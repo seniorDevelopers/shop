@@ -42,6 +42,24 @@
           }
         }
       }
+      .cart {
+      position: relative;
+        .count {
+          position: absolute;
+          top: 0;
+          right: -7px;
+          background-color: #fff;
+          border-radius: 50%;
+          font-size: 12px;
+          font-weight: 800;
+          height: 15px;
+          width: 15px;
+          color: #000;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+        }
+      }
       .userData {
         color: #000;
         width: 25px;

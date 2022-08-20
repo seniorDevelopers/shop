@@ -2,12 +2,12 @@ export const navigation = [
   {
     name_uz: "Smartfon va gadjetlar",
     name_ru: "Смартфоны и гаджеты",
-    id:"#phone"
+    id:"phone"
   },
   {
     name_uz: "Televizorlar va audio",
     name_ru: "Телевизоры и аудио",
-    id:"#phone"
+    id:"television"
   },
   {
     name_uz: "Oshxona jihozlari",

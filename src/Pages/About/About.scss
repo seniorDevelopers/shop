@@ -1,0 +1,42 @@
+.aboutProduct {
+    display: flex;
+    margin-top: 70px;
+    gap: 10px;
+    margin-left: 20px;
+    margin-right: 20px;
+
+    .aboutProduct__img {
+        width: 50%;
+        border: 1px solid #DDDDDD;
+        text-align: center;
+        padding: 30px;
+        border-radius: 8px;
+
+        img {
+            padding: 9%;
+        }
+
+    }
+
+    .aboutProduct__details {
+        border: 1px solid #DDDDDD;
+        // border-left: 1px solid #f1f1f1;
+        padding: 30px 40px;
+        border-radius: 8px;
+        width: 50%;
+
+        .aboutProduct__model {
+            font-family: Lato, sans-serif;
+            font-size: 21px;
+            font-weight: 700;
+            color: #000;
+            line-height: 1.2;
+        }
+
+        .aboutProduct__price {
+            font-weight: 600;
+            color: #000;
+            font-size: 26px;
+        }
+    }
+}
