@@ -6,16 +6,6 @@ import {
   ShoppingCartOutlined,
 } from "@ant-design/icons";
 import { AnyAction } from "redux";
-<<<<<<< HEAD
-import {navigation} from '../header/helpers'
-import uzFlag from "../../Assets/Images/uzbFlag.jpg";
-import ruFlag from "../../Assets/Images/rusFlag.jpg";
-import "./index.scss";
-import { useEffect, useState } from "react";
-import { useDispatch, useSelector } from "react-redux";
-import Modal from "../Modal/Modal";
-import Login from "../Login/Login";
-=======
 import uzFlag from "assets/Images/uzbFlag.jpg"
 import ruFlag from "assets/Images/rusFlag.jpg"
 import "./index.scss";
@@ -26,7 +16,6 @@ import { AppDispatch } from "store/store";
 
 import Modal from "components/Modal/Modal";
 import Login from "components/Login/Login";
->>>>>>> 6c1a742d3deb202819a269c421c73c180445b6ed
 import Registration from "components/Login/Registration";
 import { navigation } from "./helpers";
 
