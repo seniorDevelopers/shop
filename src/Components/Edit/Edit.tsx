@@ -4,7 +4,6 @@ import { CloseOutlined } from '@ant-design/icons';
 import { Input, Button } from 'antd';
 import './Edit.scss';
 import API from 'services/rootApi';
-import axios from 'axios';
 
 interface Type {
   closeModal: any,
@@ -28,14 +27,13 @@ const Edit = ({ closeModal }: Type) => {
     const dataa: any = {
       username: data.username,
       email: data.email,
-      first_name: firstName.length === 0 ? data.first_name : firstName,
-      last_name: lastName.length === 0 ? data.last_name : lastName,
-      number: number.length === 0 ? data.number : number,
-      address: address.length === 0 ? data.addres : address,
+      first_name: firstName?.length === 0 ? data.first_name : firstName,
+      last_name: lastName?.length === 0 ? data.last_name : lastName,
+      number: number?.length === 0 ? data.number : number,
+      address: address?.length === 0 ? data.address : address,
       image: null,
       id: data.id
     }
-
 
     if (local !== null) {
       API.put(`/user/${data.id}`, dataa).then(res => {
@@ -45,15 +43,7 @@ const Edit = ({ closeModal }: Type) => {
         }
       })
     }
-
-
-
-
   }
-
-
-
-
 
   return (
     <div className='edit-container'>
