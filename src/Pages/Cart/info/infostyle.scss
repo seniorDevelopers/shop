@@ -1,0 +1,56 @@
+.orderCard{
+    padding: 10px;
+    border: #7C7C7C 1px solid;
+    border-radius: 20px;
+    background-color: white;
+    width: 350px;
+    height: 350px;
+    .order{
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        .key{
+            display: flex;
+            justify-content: start;
+            .font{
+                font-size: 16px;
+                padding: 10px;
+                color: #7C7C7C;
+            }
+            .total{
+                color: #000;
+                font-size: 18px;
+            }
+        }
+        .value{
+            display: flex;
+            text-align: end;
+            flex-direction: column;
+            .font{
+                font-size: 16px;
+                padding: 10px;
+                color: #7C7C7C;
+            }
+            .total{
+                color: #000;
+                font-size: 18px;
+            }
+        }
+    }
+    .Buttons{
+        display: flex;
+        flex-direction: column;
+        :nth-child(1){
+            background: #1D1D1D;
+            color: white;
+        }
+        button{
+            margin: 5px;
+            border-radius: 50px;
+            background:     white;
+            height: 50px;
+            font-size: 16px;
+            // border: 1px red solid;
+        }
+    }
+}

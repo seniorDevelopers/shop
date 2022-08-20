@@ -1,10 +1,10 @@
 
-import Home from "../src/Pages/Home/Home";
-import Product from "../src/Pages/Product/Product";
+import Home from "pages/Home/Home";
+import Product from "pages/Product/Product";
+import Account from "pages/Account/Account";
+import Cart from "./pages/Cart/Cart";
+import Favorites from "./pages/Favorites/Favorites";
 
-import Account from "../src/Pages/Account/Account";
-import Cart from "./Pages/Cart/Cart";
-import Favorites from "./Pages/Favorites/Favorites";
 
 
 const routes = [

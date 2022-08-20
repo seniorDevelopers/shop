@@ -6,6 +6,7 @@ import {
   ShoppingCartOutlined,
 } from "@ant-design/icons";
 import { AnyAction } from "redux";
+<<<<<<< HEAD
 import {navigation} from '../header/helpers'
 import uzFlag from "../../Assets/Images/uzbFlag.jpg";
 import ruFlag from "../../Assets/Images/rusFlag.jpg";
@@ -14,12 +15,25 @@ import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import Modal from "../Modal/Modal";
 import Login from "../Login/Login";
-import Registration from "components/Login/Registration";
+=======
+import uzFlag from "assets/Images/uzbFlag.jpg"
+import ruFlag from "assets/Images/rusFlag.jpg"
+import "./index.scss";
+import { useEffect, useState } from "react";
+import { useDispatch, useSelector } from "react-redux";
 import { actionChangeLanguge } from "store/changeLanguage/action";
 import { AppDispatch } from "store/store";
+
+import Modal from "components/Modal/Modal";
+import Login from "components/Login/Login";
+>>>>>>> 6c1a742d3deb202819a269c421c73c180445b6ed
+import Registration from "components/Login/Registration";
+import { navigation } from "./helpers";
+
 import { Link } from "react-router-dom";
 import API from "services/rootApi";
 import { actionCartCount } from "store/cartCount/action";
+
 
 const Header = () => {
   const { changeLanguage } = useSelector((state: any) => state.changeLanguge);
@@ -43,13 +57,19 @@ const Header = () => {
   const user: any = localStorage.getItem("user");
   const userObj = JSON.parse(user);
 
-  console.log(cartCount, "cartCount cartCount");
+  console.log(user, "cartCount cartCount");
 
   useEffect(() => {
     API.get("/favorite").then((res) => {
       if (res.status === 200) {
-        const data = res.data?.filter((item: any) => item.user_id === userObj.id)
-        dispatch(actionCartCount(data.length));
+        if (user !== null) {
+          const data = res.data?.filter(
+            (item: any) => item.user_id === userObj?.id
+          );
+          dispatch(actionCartCount(data.length));
+        } else {
+          dispatch(actionCartCount(0));
+        }
       }
     });
   }, [dataBoolean]);
@@ -68,9 +88,9 @@ const Header = () => {
         <ul hidden={searchHidden}>
           {navigation.map((item) => (
             <li key={item.name_uz}>
-              <a href={item.id}>
+              <Link to={`/product/${item.id}`}>
                 {!changeLanguage ? item.name_uz : item.name_ru}
-              </a>
+              </Link>
             </li>
           ))}
         </ul>
@@ -78,7 +98,7 @@ const Header = () => {
           <div
             className="icon"
 
-            // onMouseLeave={() => setSearchHidden(!searchHidden)}
+          // onMouseLeave={() => setSearchHidden(!searchHidden)}
           >
             {!searchHidden ? (
               <SearchOutlined onClick={() => setSearchHidden(!searchHidden)} />
@@ -103,7 +123,9 @@ const Header = () => {
             <Link to={"/cart"}>
               <ShoppingCartOutlined style={{ color: "white" }} />
             </Link>
-            <span className="count" hidden={cartCount >= 1 ? false : true }>{cartCount}</span>
+            <span className="count" hidden={cartCount >= 1 ? false : true}>
+              {cartCount}
+            </span>
           </div>
           {user === null ? (
             <div className="icon">

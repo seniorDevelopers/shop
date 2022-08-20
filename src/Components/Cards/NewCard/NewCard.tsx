@@ -6,7 +6,7 @@ interface Types {
   img: string;
   title: string;
   price: string;
-  id: string;
+  id: any;
 }
 
 const NewCard = ({ img, title, price, id }: Types) => {

@@ -1,3 +1,4 @@
+
 import { DeliveredProcedureOutlined } from "@ant-design/icons";
 import NewCard from "components/Cards/NewCard/NewCard";
 import ProductCard from "components/Cards/ProductCard/ProductCard";
@@ -6,6 +7,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { actionGetProducts } from "store/products/action";
 import { AppDispatch } from "store/store";
 import "./Home.scss";
+
 function Home() {
   const { allPoducts } = useSelector((state: any) => state.getProducts);
   const { changeLanguage } = useSelector((state: any) => state.changeLanguge);
@@ -15,20 +17,23 @@ function Home() {
   const dispatch: AppDispatch = useDispatch();
 
   const newProduct = allPoducts?.reverse().filter((_: any, index: any) => index < 4);
- 
-    const allTypes =  Array.from(new Set(allPoducts?.filter((item: any) => item.type === "phone").map((item: any) => item.brend)))
-    const samsung = allPoducts?.filter((item: any) => item.type === "phone" && item.brend === "samsung")[0];
-    const apple = allPoducts?.filter((item: any) => item.type === "phone" && item.brend === "apple")[2];
-    const xiaomi = allPoducts?.filter((item: any) => item.type === "phone" && item.brend === "xiaomi")[0];
-    const nokia = allPoducts?.filter((item: any) => item.type === "phone" && item.brend === "nokia")[0];
 
- 
+  const allTypes = Array.from(new Set(allPoducts?.filter((item: any) => item.type === "phone").map((item: any) => item.brend)))
+  const samsung = allPoducts?.filter((item: any) => item.type === "phone" && item.brend === "samsung")[0];
+  const apple = allPoducts?.filter((item: any) => item.type === "phone" && item.brend === "apple")[2];
+  const xiaomi = allPoducts?.filter((item: any) => item.type === "phone" && item.brend === "xiaomi")[0];
+  const nokia = allPoducts?.filter((item: any) => item.type === "phone" && item.brend === "nokia")[0];
+
+
 
   useEffect(() => {
     dispatch(actionGetProducts());
   }, []);
 
   return (
+
+
+
     <>
       <section className="homeContainer">
         <div className="title globalContainer">
@@ -70,10 +75,10 @@ function Home() {
       <section className="phone globalContainer" id="phone">
         <h6>Телефоны</h6>
         <div className="phonesCards">
-          <ProductCard img={samsung?.image} title={"Samsung"} id={samsung?.type}/>
-          <ProductCard img={apple?.image} title={"iPhone"} id={apple?.type}/>
-          <ProductCard img={xiaomi?.image} title={"Xiaomi"} id={xiaomi?.type}/>
-          <ProductCard img={nokia?.image} title={"Nokia"} id={nokia?.type}/>
+          <ProductCard img={samsung?.image} title={"Samsung"} id={samsung?.type} />
+          <ProductCard img={apple?.image} title={"iPhone"} id={apple?.type} />
+          <ProductCard img={xiaomi?.image} title={"Xiaomi"} id={xiaomi?.type} />
+          <ProductCard img={nokia?.image} title={"Nokia"} id={nokia?.type} />
         </div>
       </section>
     </>
