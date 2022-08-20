@@ -10,12 +10,12 @@ const Cart = () => {
   const [favData, setFavData] = useState([]);
   const dispatch: AppDispatch = useDispatch();
   useEffect(() => {
-    API.get("/favorite").then((res) => {
-      if (res.status === 200) {
-        setFavData(res.data);
-        dispatch(actionCartCount(res.data.length));
-      }
-    });
+    // API.get("/favorite").then((res) => {
+    //   if (res.status === 200) {
+    //     setFavData(res.data);
+    //     dispatch(actionCartCount(res.data.length));
+    //   }
+    // });
   }, []);
 
   return (
