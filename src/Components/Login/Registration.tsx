@@ -58,7 +58,6 @@ const Registration = ({ setTab, setOpen }: any) => {
       last_name: null,
       number: null,
       address: null,
-      image: null,
     };
     const filter = allUsers.filter(
       (item: any) => item.email.toLowerCase() === email.toLocaleLowerCase()

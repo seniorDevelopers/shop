@@ -1,96 +1,95 @@
 .account-wrapper {
-    padding-top: 2.5rem;
+  padding-top: 2.5rem;
 
-    .settings {
-        width: 100%;
-        border-radius: 8px;
-        border: 2px solid #ccc;
-        padding: 4rem;
+  .settings {
+    width: 100%;
+    border-radius: 8px;
+    border: 2px solid #ccc;
+    padding: 4rem;
 
+    .setting-top {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
 
-        .setting-top {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
+      &__title {
+        font-size: 32px;
+        font-weight: 500;
+        color: rgba(0, 0, 0, 0.87);
+        font-family: "San-Francisco", sans-serif;
+      }
 
-            &__title {
-                font-size: 32px;
-                font-weight: 500;
-                color: rgba(0, 0, 0, 0.87);
-                font-family: 'San-Francisco', sans-serif;
-            }
+      .setting-top__btns {
+        display: flex;
+        gap: 1rem;
+        margin-left: 40rem;
 
-            .setting-top__btns {
-                display: flex;
-                gap: 1rem;
-                margin-left: 40rem;
-
-                &__btn-blue {
-                    height: 42px;
-                    color: #fff;
-                    background-color: #0066cc;
-                    padding: 10px 20px;
-                    line-height: 24px;
-                    border-radius: 8px;
-                    font-family: 'San-Francisco', sans-serif;
-                    border: transparent;
-                    cursor: pointer;
-                    font-size: 18px;
-                }
-
-                &__btn {
-                    height: 42px;
-                    background-color: #e0e0e0;
-                    color: rgba(0, 0, 0, 0.87);
-                    padding: 10px 20px;
-                    line-height: 24px;
-                    border-radius: 8px;
-                    font-family: 'San-Francisco', sans-serif;
-                    border: transparent;
-                    cursor: pointer;
-                    font-size: 18px;
-                }
-            }
+        &__btn-blue {
+          height: 42px;
+          color: #fff;
+          background-color: #0066cc;
+          padding: 10px 20px;
+          line-height: 24px;
+          border-radius: 8px;
+          font-family: "San-Francisco", sans-serif;
+          border: transparent;
+          cursor: pointer;
+          font-size: 18px;
         }
 
-        .setting-body {
-
-            .profile-img {
-                border-radius: 50%;
-                margin-left: 60rem;
-            }
-
-            .setting-body__titles-group {
-                margin-top: -5rem;
-                display: flex;
-                flex-direction: row;
-                gap: 15rem;
-
-                &__titles {
-                    &__title {
-                        margin-bottom: 2rem;
-                        line-height: 1.6;
-                        font-size: 20px;
-                        font-weight: 600;
-                        font-family: "San-Francisco", sans-serif;
-                    }
-
-                }
-
-                .setting-body__titles-group-titles2 {
-                    display: flex;
-                    flex-direction: column;
-
-
-                    &__text {
-                        line-height: 1.6;
-                        margin-bottom: 2rem;
-                        font-size: 20px;
-                        font-weight: 400;
-                        font-family: "San-Francisco", sans-serif;
-                    }
-                }
-            }
+        &__btn {
+          height: 42px;
+          background-color: #e0e0e0;
+          color: rgba(0, 0, 0, 0.87);
+          padding: 10px 20px;
+          line-height: 24px;
+          border-radius: 8px;
+          font-family: "San-Francisco", sans-serif;
+          border: transparent;
+          cursor: pointer;
+          font-size: 18px;
         }
+      }
     }
+
+    .setting-body {
+      .profile-img {
+        border-radius: 50%;
+        margin-left: 60rem;
+        img {
+          border-radius: 50%;
+        }
+      }
+
+      .setting-body__titles-group {
+        margin-top: -5rem;
+        display: flex;
+        flex-direction: row;
+        gap: 15rem;
+
+        &__titles {
+          &__title {
+            margin-bottom: 2rem;
+            line-height: 1.6;
+            font-size: 20px;
+            font-weight: 600;
+            font-family: "San-Francisco", sans-serif;
+          }
+        }
+
+        .setting-body__titles-group-titles2 {
+          display: flex;
+          flex-direction: column;
+
+          &__text {
+            line-height: 1.6;
+            margin-bottom: 2rem;
+            font-size: 20px;
+            font-weight: 400;
+            font-family: "San-Francisco", sans-serif;
+          }
+        }
+      }
+    }
+  }
 }
