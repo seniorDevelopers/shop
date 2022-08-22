@@ -34,7 +34,11 @@ input[type="file"] {
         flex-direction: column;
         text-align: center;
         align-items: center;
-
+        .profile-img{
+            img{
+                border-radius: 50%;
+            }
+        }
         label {
             color: #000;
             cursor: pointer;

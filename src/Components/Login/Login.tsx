@@ -60,16 +60,11 @@ const Login = ({ setTab, setOpen }: any) => {
   const [email, setEmail] = useState<string>("");
 
   const onSubmit = () => {
-    const data = {
-      username: username,
-      email: email,
-    };
     const userData = allUsers.filter(
       (item: any) =>
         item.email.toLowerCase() === email.toLocaleLowerCase() &&
         item.username.toLowerCase() === username.toLocaleLowerCase()
     );
-
     if (userData.length > 0) {
       localStorage.setItem("user", JSON.stringify(userData[0]));
       openMessage();

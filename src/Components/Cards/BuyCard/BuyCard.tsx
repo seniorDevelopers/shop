@@ -19,7 +19,7 @@ const BuyCard = ({ img, title, price, id, trueFunc, addFavorite }: Types) => {
     alert(`Xali "dalete" function yoq`)
   }
   return (
-    <Link to={`${id}`}>
+    
     <div className="buy-card-wrapper">
       <img style={{ maxWidth: "100%" }} src={img} alt={title} />
       <div className="buy-card-wrapper__titles">
@@ -36,7 +36,7 @@ const BuyCard = ({ img, title, price, id, trueFunc, addFavorite }: Types) => {
         <HeartOutlined style={{ fontSize: "20px" }} />
       </div>
     </div>
-    </Link>
+ 
   );
 };
 
