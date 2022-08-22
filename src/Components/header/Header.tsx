@@ -66,7 +66,7 @@ const Header = () => {
           <p className="logo">
             <Link to={"/"}>
               <span style={{ color: "white" }}>
-                Mac<b>Bro</b>
+                Alisher<b>Bro</b>
               </span>
             </Link>
           </p>
