@@ -50,10 +50,6 @@ export const dataInformation = [
         name_ru: 'Мы продаем для вас',
     },
     {
-        name_uz: "Muddatli to’lov",
-        name_ru: 'Рассрочка',
-    },
-    {
         name_uz: "Yetkazib berish",
         name_ru: 'Доставка',
     },

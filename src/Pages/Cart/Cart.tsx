@@ -6,7 +6,6 @@ import { useDispatch, useSelector } from "react-redux";
 import { actionCartCount } from "store/cartCount/action";
 import { AppDispatch } from "store/store";
 import Delete from "./delete/Delete";
-import photo from "../../assets/Images/cardph.png";
 import Info from "./info/info";
 import { actionFavPoducts } from "store/favoriteProducts/action";
 

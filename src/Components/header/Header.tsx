@@ -5,10 +5,10 @@ import {
   SearchOutlined,
   ShoppingCartOutlined,
 } from "@ant-design/icons";
-import { AnyAction } from "redux";
 
 import uzFlag from "assets/Images/uzbFlag.jpg";
 import ruFlag from "assets/Images/rusFlag.jpg";
+
 import "./index.scss";
 import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";

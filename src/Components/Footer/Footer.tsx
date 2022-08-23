@@ -8,7 +8,7 @@ const { Footer } = Layout;
 const FooterContainer = () => {
   return (
     <>
-      <Layout style={{marginTop: 30}}>
+      <Layout style={{marginTop: "7rem"}}>
         <Footer className="container globalContainer">
           <div className="salesProduct ">
             {dataBought.map((item) => (
@@ -45,7 +45,7 @@ const FooterContainer = () => {
                 <YoutubeOutlined className="icon" />
                 <AmazonOutlined className="icon" />
                 </div>
-                <p className="mainText">+998 78 777 20 20</p>
+                <p className="mainText">+998 77 777 77 77</p>
               </div>
             ))}
           </div>

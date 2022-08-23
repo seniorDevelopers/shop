@@ -82,6 +82,10 @@ function Home() {
         </div>
       </section>
 
+      <div className="globalContainer" style={{textAlign: "center", marginTop: "5rem"}}>
+        <img style={{width: "100%", maxHeight: "500px", objectFit: "cover"}} src="https://cdn.macbro.uz/macbro/0d5374d3-2d0d-4702-9471-92ef83917abc" alt="img" />
+      </div>
+
       <section className="phone globalContainer" id="phone">
         <h6>Телефоны</h6>
         <div className="phonesCards">
