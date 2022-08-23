@@ -1,55 +1,60 @@
-.deleteCard{
+.deleteCard {
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  padding: 10px 150px;
+  border: #7c7c7c 1px solid;
+  border-radius: 20px;
+  gap: 100px;
+  width: 900px;
+  height: 120px;
+  position: relative;
+  .photo {
+    position: absolute;
+    top: 20px;
+    left: 50px;
+    width: 70px;
+    text-align: center;  
+  }
+  .remove {
+    position: absolute;
+    top: 50px;
+    right: 50px;
+    text-align: center;
+  }
+  .productName {
+    h5 {
+      font-size: 15px;
+      width: 130px;
+    }
+    p {
+      color: #7c7c7c;
+    }
+  }
+  .price {
+    h5 {
+      // width: 200px;
+      font-size: 20px;
+    }
+  }
+  .addRemove {
     display: flex;
-    justify-content: space-evenly;
-    align-items: center;
-    padding:10px  150px;
-    border: #7C7C7C 1px solid;
-    border-radius: 20px;
-    gap: 100px;
-    width: 900px;
-    height: 120px;
-    position: relative;
-    .photo{
-        position: absolute;
-        top: 0;
-        left: 0;
+    gap: 10px;
+    .num {
+      padding: 5px;
+      font-size: 30px;
+      cursor: pointer;
+      user-select: none; 
     }
-    .remove{
-        position: absolute;
-        top: 50px;
-        right: 50px;
+    .numb {
+      border: #7c7c7c 1px solid;
+      border-radius: 10px;
+      width: 40px;
+      display: flex;
+      justify-content: center;
+      height: 40px;
+      align-items: center;
+      margin-top: 10px;
     }
-    .productName{
-        h5{
-            font-size: 18px;
-            width: 130px;
-        }
-        p{
-            color: #7C7C7C;
-        }
-    }
-    .price{
-        h5{
-            // width: 200px;
-            font-size: 20px;
-        }
-    }
-    .addRemove{
-        display: flex;
-        gap: 10px;
-        .num{
-            padding: 5px;
-            font-size: 30px;
-        }
-        .numb{
-            border: #7C7C7C 1px solid;
-            border-radius: 10px ;
-            width: 40px;
-            display: flex;
-            justify-content: center;
-            height: 40px;
-            align-items: center;
-            margin-top: 10px;
-        }
-    }
+  }
 }

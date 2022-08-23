@@ -1,3 +1,4 @@
+import { getFavPoducts } from './favoriteProducts/reducer';
 import { dataBoolean } from './boolean/reducer';
 import { cartCount } from './cartCount/reducer';
 import { combineReducers } from "redux";
@@ -9,7 +10,8 @@ const rootReducer = combineReducers({
   getUsers,
   getProducts,
   cartCount,
-  dataBoolean
+  dataBoolean,
+  getFavPoducts,
 });
 
 export default rootReducer;

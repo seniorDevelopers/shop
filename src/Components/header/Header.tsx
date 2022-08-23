@@ -7,8 +7,8 @@ import {
 } from "@ant-design/icons";
 import { AnyAction } from "redux";
 
-import uzFlag from "assets/Images/uzbFlag.jpg"
-import ruFlag from "assets/Images/rusFlag.jpg"
+import uzFlag from "assets/Images/uzbFlag.jpg";
+import ruFlag from "assets/Images/rusFlag.jpg";
 import "./index.scss";
 import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
@@ -21,7 +21,7 @@ import { navigation } from "./helpers";
 import { Link } from "react-router-dom";
 import API from "services/rootApi";
 import { actionCartCount } from "store/cartCount/action";
-
+import logo from "assets/Images/logo.png";
 
 const Header = () => {
   const { changeLanguage } = useSelector((state: any) => state.changeLanguge);
@@ -67,8 +67,8 @@ const Header = () => {
         <div>
           <p className="logo">
             <Link to={"/"}>
-              <span style={{ color: "white" }}>
-                Mac<b>Bro</b>
+              <span>
+                <img src={logo} alt="" width={120} />
               </span>
             </Link>
           </p>
@@ -86,7 +86,7 @@ const Header = () => {
           <div
             className="icon"
 
-          // onMouseLeave={() => setSearchHidden(!searchHidden)}
+            // onMouseLeave={() => setSearchHidden(!searchHidden)}
           >
             {!searchHidden ? (
               <SearchOutlined onClick={() => setSearchHidden(!searchHidden)} />

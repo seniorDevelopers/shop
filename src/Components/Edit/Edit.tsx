@@ -24,6 +24,7 @@ const Edit = ({ closeModal }: Type) => {
 
   function handleChange(e: any) {
     setFile(URL.createObjectURL(e.target.files[0]));
+    localStorage.setItem("rasm", URL.createObjectURL(e.target.files[0]));
   }
   const onSubmit = () => {
     const dataa: any = {
@@ -106,7 +107,13 @@ const Edit = ({ closeModal }: Type) => {
           value={address}
           placeholder={!changeLanguage ? "Yetkazish manzili" : "Адрес доставки"}
         />
-        <Input onChange={handleChange} type="file" id="file" accept="image/*" />
+        <Input
+          onChange={handleChange}
+          type="file"
+          id="file"
+          accept=".png,.jpeg,.doc,.jpg"
+          
+        />
       </form>
 
       <div className="btn-wrapper" onClick={onSubmit}>

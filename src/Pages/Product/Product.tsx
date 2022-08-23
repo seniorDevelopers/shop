@@ -9,6 +9,7 @@ import BuyCard from "components/Cards/BuyCard/BuyCard";
 import { actionBoolean } from "store/boolean/action";
 import { AppDispatch } from "store/store";
 import { message } from "antd";
+import Progress from "components/Progress/Progress";
 
 const Product = () => {
   const params = useParams();
@@ -249,7 +250,7 @@ const Product = () => {
           </div>
         </>
       ) : (
-        "Loading...."
+        <Progress/>
       )}
     </section>
   );

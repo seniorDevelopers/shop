@@ -5,6 +5,8 @@ export const actionGetProducts = () => async (dispatch: any) => {
   await dispatch({ type: PRODUCT_LOADING });
   try {
     const { data } = await getProducts();
+    console.log(data,"bu apini ichidgi data");
+    
     await dispatch({ type: PRODUCT_SUCCESS, payload: data });
   } catch (error) {
     dispatch({ type: PRODUCT_ERROR, payload: error });
