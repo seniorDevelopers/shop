@@ -9,9 +9,10 @@ interface Types {
   id: string;
   trueFunc: any;
   addFavorite: any;
+  
 }
 
-const BuyCard = ({ img, title, price, id, trueFunc, addFavorite }: Types) => {
+const BuyCard = ({ img, title, price, id, trueFunc, addFavorite, }: Types) => {
   const addProduct = () =>{
     addFavorite(id)
   }
